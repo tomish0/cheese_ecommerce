@@ -4,13 +4,14 @@
 /node_modules
 /.pnp
 .pnp.js
+/node_modules/@fontawesome/fontawesome-free
 
 # testing
 /coverage
 
 # production
 /build
-
+bn
 # misc
 .DS_Store
 .env.local
