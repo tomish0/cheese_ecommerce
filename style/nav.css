@@ -1,0 +1,77 @@
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+  height: 100vh;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 40px;
+  padding: 1.8rem;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #a3b8af), to(#909492));
+  background-image: linear-gradient(to bottom, #a3b8af 10%, #909492);
+  color: #1f363d;
+}
+
+nav .menu_wrapper {
+  height: 25px;
+  position: relative;
+  width: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .menu_wrapper .menu {
+  background: #1f363d;
+  border-radius: 5px;
+  height: 5px;
+  width: 100%;
+}
+
+nav .menu_wrapper .menu:before,
+nav .menu_wrapper .menu:after {
+  background: #1f363d;
+  content: "";
+  display: block;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+nav .menu_wrapper .menu:before {
+  top: 0;
+}
+
+nav .menu_wrapper .menu:after {
+  bottom: 0;
+}
+
+nav h1 {
+  font-size: 35px;
+  font-family: "Baloo Paaji 2", cursive;
+}
+
+nav .cart-icon i {
+  font-size: 30px;
+}
+/*# sourceMappingURL=nav.css.map */

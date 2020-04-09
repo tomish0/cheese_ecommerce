@@ -1,0 +1,41 @@
+@import "../style/style.scss";
+
+main {
+  .img-container {
+    display: flex;
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  .cheese-shop-link {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba($color: $main-color, $alpha: 0.5);
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: $font;
+
+    h2 {
+      font-size: 50px;
+      color: $third-color;
+      margin: 0;
+    }
+
+    button {
+    }
+  }
+}

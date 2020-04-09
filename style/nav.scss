@@ -1,0 +1,61 @@
+@import "../style/style.scss";
+
+nav {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  justify-content: space-between;
+  height: 40px;
+  padding: 1.8rem;
+  background-image: linear-gradient(
+    to bottom,
+    $second-color 10%,
+    rgb(144, 148, 146)
+  );
+  color: $main-color;
+  // box-shadow: 0px 3px 25px #888888;
+
+  .menu_wrapper {
+    height: 25px;
+    position: relative;
+    width: 40px;
+    display: flex;
+    align-items: center;
+
+    .menu {
+      background: $main-color;
+      border-radius: 5px;
+      height: 5px;
+      width: 100%;
+    }
+
+    .menu:before,
+    .menu:after {
+      background: $main-color;
+      content: "";
+      display: block;
+      height: 5px;
+      border-radius: 5px;
+      position: absolute;
+      transition: all 0.2s ease-out;
+      width: 100%;
+    }
+
+    .menu:before {
+      top: 0;
+    }
+
+    .menu:after {
+      bottom: 0;
+    }
+  }
+
+  h1 {
+    font-size: 35px;
+    font-family: $font;
+  }
+
+  .cart-icon i {
+    font-size: 30px;
+  }
+}
