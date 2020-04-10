@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="./style/nav.css" />
     <link rel="stylesheet" href="./style/shop.css" />
+    <link rel="stylesheet" href="./style/bag.css" />
     <title>Cheese/Shop</title>
   </head>
   <body>
@@ -26,6 +27,7 @@
       </div>
     </nav>
     <main>
+      <!-- Products -->
       <div class="products-container">
         <div class="each-cheese" id="1">
           <div class="img-container">
@@ -40,6 +42,34 @@
           </div>
         </div>
       </div>
+      <!-- End of Products -->
+      <!-- Bag -->
+      <div class="bag-container">
+        <button class="exit-btn"><i class="far fa-times-circle"></i></button>
+        <div class="your-bag">
+          <h2>Your Bag</h2>
+          <div class="each-cheese-container">
+            <div class="each-cheese" id="1">
+              <div class="img-container">
+                <img src="images/brie.jpg" alt="" />
+              </div>
+              <div class="each-cheese-info">
+                <h3>Brie</h3>
+                <p>£5.99</p>
+                <button><i class="fas fa-trash"></i> Remove</button>
+              </div>
+              <div class="quantity">
+                <i class="fas fa-sort-up"></i>
+                <div class="quantity-count"></div>
+                <i class="fas fa-sort-down"></i>
+              </div>
+            </div>
+            <h4 class="total">Your Total:</h4>
+            <button class="clear-btn">CLEAR BAG</button>
+          </div>
+        </div>
+      </div>
+      <!-- End of Bag -->
     </main>
   </body>
 </html>
