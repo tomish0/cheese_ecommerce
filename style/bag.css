@@ -11,10 +11,12 @@ body {
 }
 
 .bag-container {
-  width: 500px;
+  width: 300px;
   float: right;
   top: -40px;
   border: 5px solid black;
+  padding: 15px;
+  font-family: "Baloo Paaji 2", cursive;
 }
 
 .bag-container .exit-btn {
@@ -25,7 +27,6 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   border: none;
-  margin: 15px;
   width: 22px;
   height: 22px;
   background-color: #eeeeee;
@@ -35,23 +36,35 @@ body {
   font-size: 20px;
 }
 
-.bag-container .each-cheese {
+.bag-container h2 {
+  margin-top: 5px;
+}
+
+.bag-container .each-cheese-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
-.bag-container .each-cheese .img-container {
+.bag-container .each-cheese-container .each-cheese {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.bag-container .each-cheese-container .each-cheese .img-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,14 +75,32 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  height: 200px;
-  width: 325px;
+  height: 70px;
+  width: 100px;
 }
 
-.bag-container .each-cheese .img-container img {
+.bag-container .each-cheese-container .each-cheese .img-container img {
   width: 100%;
   height: 100%;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.bag-container .each-cheese-container .each-cheese .each-cheese-info {
+  margin-left: 10px;
+  height: 80px;
+  font-size: 14px;
+}
+
+.bag-container .each-cheese-container .each-cheese .each-cheese-info h3 {
+  margin: 0;
+}
+
+.bag-container .each-cheese-container .each-cheese .each-cheese-info p {
+  margin: 0;
+}
+
+.bag-container .each-cheese-container .each-cheese .each-cheese-info button {
+  margin: 0;
 }
 /*# sourceMappingURL=bag.css.map */
