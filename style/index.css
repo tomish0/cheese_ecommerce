@@ -11,17 +11,19 @@ main .img-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 70vw;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-height: calc(100vh - 90px);
+  overflow: hidden;
 }
 
 main .img-container img {
   width: 100%;
-  border-radius: 10px;
+  height: 100%;
 }
 
 main .cheese-shop-link {
@@ -51,5 +53,24 @@ main .cheese-shop-link h2 {
   font-size: 50px;
   color: #eeeeee;
   margin: 0;
+}
+
+main .cheese-shop-link button {
+  background-color: rgba(144, 148, 146, 0.5);
+  font-family: "Baloo Paaji 2", cursive;
+  color: #eeeeee;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid #eeeeee;
+  margin-bottom: 15px;
+  width: 80px;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main .cheese-shop-link button:hover {
+  background-color: #1f363d;
 }
 /*# sourceMappingURL=index.css.map */

@@ -1,0 +1,117 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+  height: 100vh;
+}
+
+main .products-container {
+  width: 90vw;
+  margin: 50px auto;
+  max-width: 2000px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(325px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  grid-column-gap: 1.7rem;
+  grid-row-gap: 1rem;
+}
+
+main .products-container .each-cheese {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .products-container .each-cheese .img-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 200px;
+  width: 325px;
+}
+
+main .products-container .each-cheese .img-container img {
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+main .products-container .each-cheese .img-container .add-to-bag {
+  position: absolute;
+  height: 200px;
+  width: 325px;
+}
+
+main .products-container .each-cheese .img-container .add-to-bag button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 15px;
+  border: none;
+  margin-bottom: 15px;
+  height: 200px;
+  width: 325px;
+  outline: none;
+  background-color: rgba(31, 54, 61, 0);
+  color: rgba(31, 54, 61, 0);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main .products-container .each-cheese .img-container button:hover {
+  background-color: rgba(31, 54, 61, 0.5);
+  color: #eeeeee;
+  cursor: pointer;
+}
+
+main .products-container .each-cheese .each-cheese-info {
+  width: 325px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: "Baloo Paaji 2", cursive;
+  color: #1f363d;
+}
+
+main .products-container .each-cheese .each-cheese-info h3 {
+  font-size: 25px;
+  margin: 15px 0 0 0;
+}
+
+main .products-container .each-cheese .each-cheese-info p {
+  margin: 3px;
+}
+/*# sourceMappingURL=shop.css.map */

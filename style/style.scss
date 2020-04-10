@@ -3,10 +3,13 @@ $main-color: #1f363d;
 $second-color: rgb(163, 184, 175);
 $third-color: rgb(238, 238, 238);
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: $third-color;
-    height: 100vh;
-  }
+  margin: 0;
+  padding: 0;
+  background-color: $third-color;
+  height: 100vh;
+}
