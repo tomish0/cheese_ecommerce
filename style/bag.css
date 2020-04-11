@@ -14,9 +14,10 @@ body {
   width: 300px;
   float: right;
   top: -40px;
-  border: 5px solid black;
   padding: 15px;
   font-family: "Baloo Paaji 2", cursive;
+  background-color: #a3b8af;
+  color: #1f363d;
 }
 
 .bag-container .exit-btn {
@@ -29,15 +30,16 @@ body {
   border: none;
   width: 22px;
   height: 22px;
-  background-color: #eeeeee;
+  background-color: #a3b8af;
 }
 
 .bag-container .exit-btn i {
   font-size: 20px;
+  color: #1f363d;
 }
 
 .bag-container h2 {
-  margin-top: 5px;
+  margin: 5px 0;
 }
 
 .bag-container .each-cheese-container {
@@ -102,5 +104,39 @@ body {
 
 .bag-container .each-cheese-container .each-cheese .each-cheese-info button {
   margin: 0;
+  outline: none;
+  border: none;
+  padding: 0;
+  background-color: #a3b8af;
+  color: #1f363d;
+  cursor: pointer;
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 12px;
+}
+
+.bag-container .each-cheese-container .quantity button {
+  outline: none;
+  border: none;
+  padding: 0;
+  background-color: #a3b8af;
+  color: #1f363d;
+  cursor: pointer;
+}
+
+.bag-container .each-cheese-container .quantity button i {
+  font-size: 15px;
+}
+
+.bag-container h4 {
+  margin: 10px 0 3px 0;
+}
+
+.bag-container .clear-btn {
+  color: #eeeeee;
+  background-color: #1f363d;
+  border: none;
+  border-radius: 5px;
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 10px;
 }
 /*# sourceMappingURL=bag.css.map */

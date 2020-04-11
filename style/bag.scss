@@ -4,33 +4,33 @@
   width: 300px;
   float: right;
   top: -40px;
-  border: 5px solid black;
   padding: 15px;
   font-family: $font;
+  background-color: $second-color;
+  color: $main-color;
 
   .exit-btn {
     display: flex;
     justify-content: center;
     border: none;
-    // margin: 15px;
     width: 22px;
     height: 22px;
-    background-color: $third-color;
+    background-color: $second-color;
 
     i {
       font-size: 20px;
+      color: $main-color;
     }
   }
 
   h2 {
-    margin-top: 5px;
+    margin: 5px 0;
   }
 
   .each-cheese-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // flex-direction: column;
 
     .each-cheese {
       display: flex;
@@ -53,22 +53,57 @@
       }
 
       .each-cheese-info {
-          margin-left: 10px;
-          height: 80px;
-          font-size: 14px;
+        margin-left: 10px;
+        height: 80px;
+        font-size: 14px;
 
-          h3 {
-              margin: 0;
-          }
+        h3 {
+          margin: 0;
+        }
 
-          p {
-              margin: 0;
-          }
+        p {
+          margin: 0;
+        }
 
-          button {
-            margin: 0;
-          }
+        button {
+          margin: 0;
+          outline: none;
+          border: none;
+          padding: 0;
+          background-color: $second-color;
+          color: $main-color;
+          cursor: pointer;
+          font-family: $font;
+          font-size: 12px;
+        }
       }
     }
+
+    .quantity {
+      button {
+        outline: none;
+        border: none;
+        padding: 0;
+        background-color: $second-color;
+        color: $main-color;
+        cursor: pointer;
+
+        i {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  h4 {
+    margin: 10px 0 3px 0;
+  }
+
+  .clear-btn {
+    color: $third-color;
+    background-color: $main-color;
+    border: none;
+    border-radius: 5px;
+    font-family: $font;
+    font-size: 10px;
   }
 }
