@@ -8,6 +8,7 @@
   font-family: $font;
   background-color: $second-color;
   color: $main-color;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 
   .exit-btn {
     display: flex;
@@ -105,5 +106,6 @@
     border-radius: 5px;
     font-family: $font;
     font-size: 10px;
+    cursor: pointer;
   }
 }

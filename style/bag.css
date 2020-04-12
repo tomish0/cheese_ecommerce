@@ -18,6 +18,8 @@ body {
   font-family: "Baloo Paaji 2", cursive;
   background-color: #a3b8af;
   color: #1f363d;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .bag-container .exit-btn {
@@ -138,5 +140,6 @@ body {
   border-radius: 5px;
   font-family: "Baloo Paaji 2", cursive;
   font-size: 10px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=bag.css.map */
