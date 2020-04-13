@@ -3,7 +3,6 @@
 .bag-container {
   width: 300px;
   float: right;
-  top: -40px;
   padding: 15px;
   font-family: $font;
   background-color: $second-color;
@@ -81,6 +80,9 @@
     }
 
     .quantity {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
       button {
         outline: none;
         border: none;

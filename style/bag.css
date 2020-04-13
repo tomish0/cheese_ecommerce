@@ -13,7 +13,6 @@ body {
 .bag-container {
   width: 300px;
   float: right;
-  top: -40px;
   padding: 15px;
   font-family: "Baloo Paaji 2", cursive;
   background-color: #a3b8af;
@@ -114,6 +113,19 @@ body {
   cursor: pointer;
   font-family: "Baloo Paaji 2", cursive;
   font-size: 12px;
+}
+
+.bag-container .each-cheese-container .quantity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .bag-container .each-cheese-container .quantity button {
