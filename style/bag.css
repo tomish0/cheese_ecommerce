@@ -1,0 +1,157 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+  height: 100vh;
+}
+
+.bag-container {
+  width: 300px;
+  float: right;
+  padding: 15px;
+  font-family: "Baloo Paaji 2", cursive;
+  background-color: #a3b8af;
+  color: #1f363d;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.bag-container .exit-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: none;
+  width: 22px;
+  height: 22px;
+  background-color: #a3b8af;
+}
+
+.bag-container .exit-btn i {
+  font-size: 20px;
+  color: #1f363d;
+}
+
+.bag-container h2 {
+  margin: 5px 0;
+}
+
+.bag-container .each-cheese-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bag-container .each-cheese-container .each-cheese {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.bag-container .each-cheese-container .each-cheese .img-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  height: 70px;
+  width: 100px;
+}
+
+.bag-container .each-cheese-container .each-cheese .img-container img {
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.bag-container .each-cheese-container .each-cheese .each-cheese-info {
+  margin-left: 10px;
+  height: 80px;
+  font-size: 14px;
+}
+
+.bag-container .each-cheese-container .each-cheese .each-cheese-info h3 {
+  margin: 0;
+}
+
+.bag-container .each-cheese-container .each-cheese .each-cheese-info p {
+  margin: 0;
+}
+
+.bag-container .each-cheese-container .each-cheese .each-cheese-info button {
+  margin: 0;
+  outline: none;
+  border: none;
+  padding: 0;
+  background-color: #a3b8af;
+  color: #1f363d;
+  cursor: pointer;
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 12px;
+}
+
+.bag-container .each-cheese-container .quantity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.bag-container .each-cheese-container .quantity button {
+  outline: none;
+  border: none;
+  padding: 0;
+  background-color: #a3b8af;
+  color: #1f363d;
+  cursor: pointer;
+}
+
+.bag-container .each-cheese-container .quantity button i {
+  font-size: 15px;
+}
+
+.bag-container h4 {
+  margin: 10px 0 3px 0;
+}
+
+.bag-container .clear-btn {
+  color: #eeeeee;
+  background-color: #1f363d;
+  border: none;
+  border-radius: 5px;
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 10px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=bag.css.map */
