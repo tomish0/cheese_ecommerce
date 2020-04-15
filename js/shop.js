@@ -2,6 +2,11 @@
 const productsContainer = document.querySelector(".products-container");
 const bagCheesesContainer = document.querySelector(".cheeses-container");
 const totalCost = document.querySelector(".total-cost");
+
+const allCheeses =
+  JSON.parse(localStorage.getItem("allCheeses")) !== null
+    ? JSON.parse(localStorage.getItem("allCheeses"))
+    : [];
 const bag =
   JSON.parse(localStorage.getItem("bag")) !== null
     ? JSON.parse(localStorage.getItem("bag"))
@@ -11,15 +16,16 @@ async function getCheeses() {
   try {
     let result = await fetch("cheeses.json");
     let data = await result.json();
+    JSON.parse(localStorage.getItem("allCheeses")) === null ? localStorage.setItem("allCheeses", JSON.stringify(data.cheeses)) : null
     return data.cheeses;
   } catch (error) {
     console.log(error);
   }
 }
 
-displayCheeses = (cheeses) => {
+displayCheeses = () => {
   let result = "";
-  cheeses.forEach((cheese) => {
+  allCheeses.forEach((cheese) => {
     result += `<div class="each-cheese" id="${cheese.id}">
       <div class="img-container">
         <img src="${cheese.image.url}" alt="" />
@@ -34,52 +40,94 @@ displayCheeses = (cheeses) => {
     </div>`;
   });
   productsContainer.innerHTML = result;
-  addToBag(cheeses);
 };
 
-addToBag = (cheeses) => {
+addToBagButtons = () => {
   const addToBagButtons = [...document.querySelectorAll(".add-to-bag-btn")];
   addToBagButtons.forEach((btn) => {
-    // for each add to bag button check if already in bag, if not then add event listener
-    if (!btn.disabled) {
-      btn.addEventListener("click", (event) => {
-        event.target.innerHTML = "In Bag";
-        event.target.disabled = true;
-        let correctCheese = cheeses.find((cheese) => cheese.id === btn.id);
-        let cheeseWithAmount = { ...correctCheese, quantity: 1 };
-        bag.unshift(cheeseWithAmount);
-        localStorage.setItem("bag", JSON.stringify(bag));
-        // show bag with localStorage values
-        showUpdatedBag();
-        updateTotals(cheeseWithAmount);
-      });
-    }
-  });
-};
-
-removeFromBag = (bag) => {
-  const removeButtons = document.querySelectorAll(".remove-btn");
-  removeButtons.forEach((btn) => {
-    // for each add to bag button check if already in bag, if not then add event listener
-    btn.addEventListener("click", () => {
-      let correctCheese = bag.find((cheese) => cheese.id === btn.id);
-      console.log(correctCheese);
-      let correctCheeseId = bag.findIndex(
+    btn.addEventListener("click", (event) => {
+      event.target.innerHTML = "In Bag";
+      event.target.disabled = true;
+      let correctCheese = allCheeses.find((cheese) => cheese.id === btn.id);
+      let cheeseInBag = { ...correctCheese, quantity: 1, inBag: true };
+      bag.unshift(cheeseInBag);
+      let correctCheeseIndex = allCheeses.findIndex(
         (cheese) => cheese.id === correctCheese.id
       );
-      bag.splice(correctCheeseId, 1);
+      allCheeses[correctCheeseIndex] = cheeseInBag;
       localStorage.setItem("bag", JSON.stringify(bag));
-      showUpdatedBag(bag);
+      localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
+
+      showUpdatedBag();
+      increasePriceTotal();
+      increaseQuantityTotal();
     });
   });
 };
 
+handleAddToBagButtons = () => {
+  const addToBagButtons = [...document.querySelectorAll(".add-to-bag-btn")];
+  allCheeses.forEach((cheese) => {
+    let inBagButtons = addToBagButtons.find((btn) => btn.id === cheese.id);
+    if (cheese.inBag) {
+      inBagButtons.innerHTML = "In Bag";
+      inBagButtons.disabled = true;
+    } else {
+      inBagButtons.innerHTML = `<i class="fas fa-shopping-cart"></i> Add to Bag`;
+      inBagButtons.disabled = false;
+    }
+  });
+};
+
+removeFromBag = () => {
+  const removeButtons = document.querySelectorAll(".remove-btn");
+  removeButtons.forEach((btn) => {
+    let correctCheese = bag.find((cheese) => cheese.id === btn.id);
+    btn.addEventListener("click", () => {
+      correctCheese.inBag = false;
+      let correctCheeseBagIndex = bag.findIndex(
+        (cheese) => cheese.id === correctCheese.id
+      );
+      bag.splice(correctCheeseBagIndex, 1);
+      let correctAllCheeseIndex = allCheeses.findIndex(
+        (cheese) => cheese.id === correctCheese.id
+      );
+      allCheeses[correctAllCheeseIndex] = correctCheese;
+      localStorage.setItem("bag", JSON.stringify(bag));
+      localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
+
+      showUpdatedBag();
+      decreasePriceTotal(correctCheese);
+      decreaseQuantityTotal(correctCheese);
+      handleAddToBagButtons();
+    });
+  });
+};
+
+quantityRemoveFromBag = (correctCheese) => {
+  correctCheese.inBag = false;
+  let correctCheeseBagIndex = bag.findIndex(
+    (cheese) => cheese.id === correctCheese.id
+  );
+  bag.splice(correctCheeseBagIndex, 1);
+  let correctAllCheeseIndex = allCheeses.findIndex(
+    (cheese) => cheese.id === correctCheese.id
+  );
+  allCheeses[correctAllCheeseIndex] = correctCheese;
+  localStorage.setItem("bag", JSON.stringify(bag));
+  localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
+
+  showUpdatedBag();
+  decreasePriceTotal(correctCheese);
+  handleAddToBagButtons();
+};
+
 showUpdatedBag = () => {
-  if (JSON.parse(localStorage.getItem("priceTotal"))) {
-    totalCost.innerText = `Total: £${JSON.parse(
-      localStorage.getItem("priceTotal")
-    ).toFixed(2)}`;
-  }
+  let priceTotal =
+    JSON.parse(localStorage.getItem("priceTotal")) !== null
+      ? JSON.parse(localStorage.getItem("priceTotal"))
+      : 0;
+  totalCost.innerText = `Total: £${priceTotal}`;
   let result = "";
   bag.forEach((cheese) => {
     result += `<div class="each-cheese-container">
@@ -94,39 +142,78 @@ showUpdatedBag = () => {
         </div>
       </div>
       <div class="quantity">
-        <button class="arrow"><i class="fas fa-sort-up"></i></button>
+        <button class="quantity-up" id="${cheese.id}"><i class="fas fa-sort-up"></i></button>
         <div class="quantity-count">${cheese.quantity}</div>
-        <button><i class="fas fa-sort-down"></i></button>
+        <button class="quantity-down" id="${cheese.id}"><i class="fas fa-sort-down"></i></button>
       </div>
     </div>`;
   });
   bagCheesesContainer.innerHTML = result;
-  removeFromBag(bag);
+  removeFromBag();
+  increaseQuantityTotal();
+  decreaseQuantityTotal();
 };
 
-updateTotals = (cheeseWithAmount) => {
+increasePriceTotal = () => {
   let itemsTotal = 0;
-  let quantity = cheeseWithAmount.quantity;
   let priceTotal = 0;
-  JSON.parse(localStorage.getItem("bag")).map((cheese) => {
+  bag.map((cheese) => {
     itemsTotal += 1;
     priceTotal += cheese.price;
   });
-  localStorage.setItem("priceTotal", JSON.stringify(priceTotal));
+  localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
   localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
-  totalCost.innerText = `Total: £${JSON.parse(
-    localStorage.getItem("priceTotal")
-  ).toFixed(2)}`;
+  totalCost.innerText = `Total: £${priceTotal.toFixed(2)}`;
+};
+
+increaseQuantityTotal = () => {
+  const quantityUp = document.querySelectorAll(".quantity-up");
+  quantityUp.forEach((btn) => {
+    let correctCheese = bag.find((cheese) => cheese.id === btn.id);
+    let quantity = correctCheese.quantity;
+    btn.addEventListener("click", () => {
+      quantity += 1;
+      correctCheese.quantity = quantity;
+      showUpdatedBag();
+    });
+  });
+};
+
+decreasePriceTotal = (correctCheese) => {
+  priceTotal = JSON.parse(localStorage.getItem("priceTotal"));
+  itemsTotal = JSON.parse(localStorage.getItem("itemsTotal"));
+  itemsTotal -= 1;
+  priceTotal -= correctCheese.price;
+  localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
+  localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
+  totalCost.innerText = `Total: £${priceTotal.toFixed(2)}`;
+};
+
+decreaseQuantityTotal = () => {
+  const quantityDown = document.querySelectorAll(".quantity-down");
+  quantityDown.forEach((btn) => {
+    let correctCheese = bag.find((cheese) => cheese.id === btn.id);
+    let quantity = correctCheese.quantity;
+    btn.addEventListener("click", () => {
+      quantity -= 1;
+      correctCheese.quantity = quantity;
+      if (quantity === 0) {
+        quantityRemoveFromBag(correctCheese);
+      }
+      showUpdatedBag();
+    });
+  });
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // localStorage.clear()
+  // localStorage.clear();
   getCheeses()
-    .then((cheeses) => {
-      displayCheeses(cheeses);
+    .then(() => {
+      displayCheeses();
     })
     .then(() => {
+      addToBagButtons();
+      handleAddToBagButtons();
       showUpdatedBag();
-      removeFromBag();
-    });
+    })
 });
