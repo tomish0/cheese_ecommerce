@@ -3,6 +3,13 @@
           box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+  min-height: 100%;
+}
+
 html,
 body {
   margin: 0;
@@ -93,8 +100,8 @@ body nav .cart-icon {
   position: relative;
 }
 
-html nav .cart-icon .bag-value,
-body nav .cart-icon .bag-value {
+html nav .cart-icon .items-total,
+body nav .cart-icon .items-total {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

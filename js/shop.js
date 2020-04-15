@@ -16,7 +16,9 @@ async function getCheeses() {
   try {
     let result = await fetch("cheeses.json");
     let data = await result.json();
-    JSON.parse(localStorage.getItem("allCheeses")) === null ? localStorage.setItem("allCheeses", JSON.stringify(data.cheeses)) : null
+    JSON.parse(localStorage.getItem("allCheeses")) === null
+      ? localStorage.setItem("allCheeses", JSON.stringify(data.cheeses))
+      : null;
     return data.cheeses;
   } catch (error) {
     console.log(error);
@@ -159,7 +161,7 @@ increasePriceTotal = () => {
   let priceTotal = 0;
   bag.map((cheese) => {
     itemsTotal += 1;
-    priceTotal += cheese.price;
+    priceTotal += cheese.price * cheese.quantity;
   });
   localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
   localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
@@ -174,7 +176,9 @@ increaseQuantityTotal = () => {
     btn.addEventListener("click", () => {
       quantity += 1;
       correctCheese.quantity = quantity;
+      localStorage.setItem("bag", JSON.stringify(bag))
       showUpdatedBag();
+      increasePriceTotal();
     });
   });
 };
@@ -197,10 +201,14 @@ decreaseQuantityTotal = () => {
     btn.addEventListener("click", () => {
       quantity -= 1;
       correctCheese.quantity = quantity;
+      localStorage.setItem("bag", JSON.stringify(bag))
       if (quantity === 0) {
         quantityRemoveFromBag(correctCheese);
       }
       showUpdatedBag();
+      if (quantity !== 0) {
+        decreasePriceTotal(correctCheese);
+      }
     });
   });
 };
@@ -215,5 +223,5 @@ document.addEventListener("DOMContentLoaded", () => {
       addToBagButtons();
       handleAddToBagButtons();
       showUpdatedBag();
-    })
+    });
 });
