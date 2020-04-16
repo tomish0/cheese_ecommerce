@@ -7,10 +7,11 @@ body {
   margin: 0;
   padding: 0;
   background-color: #eeeeee;
-  height: 100vh;
+  min-height: 100%;
 }
 
 .products-container {
+  margin-top: 90px;
   width: 90vw;
   margin: 50px auto;
   max-width: 2000px;

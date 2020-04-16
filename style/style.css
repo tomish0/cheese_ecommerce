@@ -7,6 +7,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: #eeeeee;
-  height: 100vh;
+  min-height: 100%;
 }
 /*# sourceMappingURL=style.css.map */
