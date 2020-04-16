@@ -2,6 +2,9 @@
 const productsContainer = document.querySelector(".products-container");
 const bagCheesesContainer = document.querySelector(".cheeses-container");
 const totalCost = document.querySelector(".total-cost");
+const itemsTotal = document.querySelector("#items-total");
+const cartIcon = document.querySelector(".cart-icon");
+const bagContainer = document.querySelector("#bag-container");
 
 const allCheeses =
   JSON.parse(localStorage.getItem("allCheeses")) !== null
@@ -21,7 +24,7 @@ async function getCheeses() {
       : null;
     return data.cheeses;
   } catch (error) {
-    console.log(error); 
+    console.log(error);
   }
 }
 
@@ -44,6 +47,17 @@ displayCheeses = () => {
   productsContainer.innerHTML = result;
 };
 
+getCurrentCart = (localStorage) => {
+  if (localStorage.itemsTotal > 0) {
+    itemsTotal.classList.add("items-total");
+    itemsTotal.innerHTML = localStorage.itemsTotal;
+  } else {
+    itemsTotal.classList.remove("items-total");
+
+    itemsTotal.innerHTML = null;
+  }
+};
+
 addToBagButtons = () => {
   const addToBagButtons = [...document.querySelectorAll(".add-to-bag-btn")];
   addToBagButtons.forEach((btn) => {
@@ -63,6 +77,7 @@ addToBagButtons = () => {
       showUpdatedBag();
       increasePriceTotal();
       increaseQuantityTotal();
+      getCurrentCart(localStorage);
     });
   });
 };
@@ -81,11 +96,25 @@ handleAddToBagButtons = () => {
   });
 };
 
+showCart = () => {
+  cartIcon.addEventListener("click", () => {
+    console.log("clicked");
+    bagContainer.classList.toggle("active");
+  });
+};
+
 removeFromBag = () => {
   const removeButtons = document.querySelectorAll(".remove-btn");
   removeButtons.forEach((btn) => {
     let correctCheese = bag.find((cheese) => cheese.id === btn.id);
     btn.addEventListener("click", () => {
+      console.log("clicked");
+
+      let priceTotal = JSON.parse(localStorage.getItem("priceTotal"));
+      let itemsTotal = JSON.parse(localStorage.getItem("itemsTotal"));
+      itemsTotal -= 1;
+      priceTotal -= correctCheese.price * correctCheese.quantity;
+
       correctCheese.inBag = false;
       let correctCheeseBagIndex = bag.findIndex(
         (cheese) => cheese.id === correctCheese.id
@@ -95,13 +124,16 @@ removeFromBag = () => {
         (cheese) => cheese.id === correctCheese.id
       );
       allCheeses[correctAllCheeseIndex] = correctCheese;
+
+      localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
+      localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
       localStorage.setItem("bag", JSON.stringify(bag));
       localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
 
       showUpdatedBag();
-      decreasePriceTotal(correctCheese);
       decreaseQuantityTotal(correctCheese);
       handleAddToBagButtons();
+      getCurrentCart(localStorage);
     });
   });
 };
@@ -116,12 +148,17 @@ quantityRemoveFromBag = (correctCheese) => {
     (cheese) => cheese.id === correctCheese.id
   );
   allCheeses[correctAllCheeseIndex] = correctCheese;
+
+  let itemsTotal = JSON.parse(localStorage.getItem("itemsTotal"));
+  itemsTotal -= 1;
+  localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
   localStorage.setItem("bag", JSON.stringify(bag));
   localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
 
   showUpdatedBag();
   decreasePriceTotal(correctCheese);
   handleAddToBagButtons();
+  getCurrentCart(localStorage);
 };
 
 showUpdatedBag = () => {
@@ -176,7 +213,7 @@ increaseQuantityTotal = () => {
     btn.addEventListener("click", () => {
       quantity += 1;
       correctCheese.quantity = quantity;
-      localStorage.setItem("bag", JSON.stringify(bag))
+      localStorage.setItem("bag", JSON.stringify(bag));
       showUpdatedBag();
       increasePriceTotal();
     });
@@ -184,12 +221,9 @@ increaseQuantityTotal = () => {
 };
 
 decreasePriceTotal = (correctCheese) => {
-  priceTotal = JSON.parse(localStorage.getItem("priceTotal"));
-  itemsTotal = JSON.parse(localStorage.getItem("itemsTotal"));
-  itemsTotal -= 1;
+  let priceTotal = JSON.parse(localStorage.getItem("priceTotal"));
   priceTotal -= correctCheese.price;
   localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
-  localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
   totalCost.innerText = `Total: £${priceTotal.toFixed(2)}`;
 };
 
@@ -201,7 +235,7 @@ decreaseQuantityTotal = () => {
     btn.addEventListener("click", () => {
       quantity -= 1;
       correctCheese.quantity = quantity;
-      localStorage.setItem("bag", JSON.stringify(bag))
+      localStorage.setItem("bag", JSON.stringify(bag));
       if (quantity === 0) {
         quantityRemoveFromBag(correctCheese);
       }
@@ -220,8 +254,10 @@ document.addEventListener("DOMContentLoaded", () => {
       displayCheeses();
     })
     .then(() => {
+      getCurrentCart(localStorage);
       addToBagButtons();
       handleAddToBagButtons();
       showUpdatedBag();
+      showCart();
     });
 });

@@ -3,6 +3,13 @@
           box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+  min-height: 100%;
+}
+
 .img-container {
   display: -webkit-box;
   display: -ms-flexbox;

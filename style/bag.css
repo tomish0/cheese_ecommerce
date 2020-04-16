@@ -3,15 +3,31 @@
           box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+  min-height: 100%;
+}
+
 .bag-container {
-  width: 300px;
-  float: right;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 90px;
+  right: 0;
+  width: 400px;
   padding: 15px;
   font-family: "Baloo Paaji 2", cursive;
   background-color: #a3b8af;
   color: #1f363d;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  -webkit-transform: translate(0, -110%);
+          transform: translate(0, -110%);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
 }
 
 .bag-container .exit-btn {
@@ -146,5 +162,10 @@
   font-family: "Baloo Paaji 2", cursive;
   font-size: 10px;
   cursor: pointer;
+}
+
+.active {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 /*# sourceMappingURL=bag.css.map */

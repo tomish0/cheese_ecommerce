@@ -10,16 +10,7 @@ body {
   min-height: 100%;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #eeeeee;
-  min-height: 100%;
-}
-
-html nav,
-body nav {
+nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,17 +26,14 @@ body nav {
   width: 100%;
   height: 90px;
   padding: 30px;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #a3b8af), to(#909492));
-  background-image: linear-gradient(to bottom, #a3b8af 10%, #909492);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #cadad3), to(#a3b8af));
+  background-image: linear-gradient(to bottom, #cadad3 20%, #a3b8af);
   color: #1f363d;
-  -webkit-box-shadow: 0px 3px 25px #888888;
-          box-shadow: 0px 3px 25px #888888;
   z-index: 100;
   font-family: "Baloo Paaji 2", cursive;
 }
 
-html nav .menu_wrapper,
-body nav .menu_wrapper {
+nav .menu_wrapper {
   height: 25px;
   position: relative;
   width: 40px;
@@ -57,18 +45,15 @@ body nav .menu_wrapper {
           align-items: center;
 }
 
-html nav .menu_wrapper .menu,
-body nav .menu_wrapper .menu {
+nav .menu_wrapper .menu {
   background: #1f363d;
   border-radius: 5px;
   height: 5px;
   width: 100%;
 }
 
-html nav .menu_wrapper .menu:before,
-html nav .menu_wrapper .menu:after,
-body nav .menu_wrapper .menu:before,
-body nav .menu_wrapper .menu:after {
+nav .menu_wrapper .menu:before,
+nav .menu_wrapper .menu:after {
   background: #1f363d;
   content: "";
   display: block;
@@ -80,28 +65,24 @@ body nav .menu_wrapper .menu:after {
   width: 100%;
 }
 
-html nav .menu_wrapper .menu:before,
-body nav .menu_wrapper .menu:before {
+nav .menu_wrapper .menu:before {
   top: 0;
 }
 
-html nav .menu_wrapper .menu:after,
-body nav .menu_wrapper .menu:after {
+nav .menu_wrapper .menu:after {
   bottom: 0;
 }
 
-html nav h1,
-body nav h1 {
+nav h1 {
   font-size: 40px;
 }
 
-html nav .cart-icon,
-body nav .cart-icon {
+nav .cart-icon {
   position: relative;
+  cursor: pointer;
 }
 
-html nav .cart-icon .items-total,
-body nav .cart-icon .items-total {
+nav .cart-icon .items-total {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,8 +103,7 @@ body nav .cart-icon .items-total {
   color: white;
 }
 
-html nav .cart-icon i,
-body nav .cart-icon i {
+nav .cart-icon i {
   font-size: 30px;
 }
 /*# sourceMappingURL=nav.css.map */
