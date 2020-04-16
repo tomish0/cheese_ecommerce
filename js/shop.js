@@ -21,7 +21,7 @@ async function getCheeses() {
       : null;
     return data.cheeses;
   } catch (error) {
-    console.log(error);
+    console.log(error); 
   }
 }
 
