@@ -3,14 +3,22 @@ const productsContainer = document.querySelector(".products-container");
 const bagCheesesContainer = document.querySelector(".cheeses-container");
 const totalCost = document.querySelector(".total-cost");
 const itemsTotal = document.querySelector("#items-total");
-const cartIcon = document.querySelector(".cart-icon");
-const bagContainer = document.querySelector("#bag-container");
-
+const bagContainer = document.querySelector(".bag-container");
+const cartIcon = document
+  .querySelector(".cart-icon")
+  .addEventListener("click", () => {
+    bagContainer.classList.toggle("active");
+  });
+const bagExit = document
+  .querySelector(".exit-btn")
+  .addEventListener("click", () => {
+    bagContainer.classList.remove("active");
+  });
 const allCheeses =
   JSON.parse(localStorage.getItem("allCheeses")) !== null
     ? JSON.parse(localStorage.getItem("allCheeses"))
     : [];
-const bag =
+let bag =
   JSON.parse(localStorage.getItem("bag")) !== null
     ? JSON.parse(localStorage.getItem("bag"))
     : [];
@@ -53,7 +61,6 @@ getCurrentCart = (localStorage) => {
     itemsTotal.innerHTML = localStorage.itemsTotal;
   } else {
     itemsTotal.classList.remove("items-total");
-
     itemsTotal.innerHTML = null;
   }
 };
@@ -74,6 +81,8 @@ addToBagButtons = () => {
       localStorage.setItem("bag", JSON.stringify(bag));
       localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
 
+      bagContainer.classList.add("active");
+
       showUpdatedBag();
       increasePriceTotal();
       increaseQuantityTotal();
@@ -93,13 +102,6 @@ handleAddToBagButtons = () => {
       inBagButtons.innerHTML = `<i class="fas fa-shopping-cart"></i> Add to Bag`;
       inBagButtons.disabled = false;
     }
-  });
-};
-
-showCart = () => {
-  cartIcon.addEventListener("click", () => {
-    console.log("clicked");
-    bagContainer.classList.toggle("active");
   });
 };
 
@@ -135,6 +137,27 @@ removeFromBag = () => {
       handleAddToBagButtons();
       getCurrentCart(localStorage);
     });
+  });
+
+  const clearAllBtn = document.querySelector(".clear-btn");
+  clearAllBtn.addEventListener("click", () => {
+    bag.forEach((cheese) => {
+      cheese.inBag = false;
+      let correctAllCheeseIndex = allCheeses.findIndex(
+        (allCheesesCheese) => allCheesesCheese.id === cheese.id
+      );
+      allCheeses[correctAllCheeseIndex] = cheese;
+    });
+    bag = [];
+    let priceTotal = 0.0;
+    let itemsTotal = 0;
+    localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
+    localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
+    localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
+    localStorage.setItem("bag", JSON.stringify(bag));
+    showUpdatedBag();
+    handleAddToBagButtons();
+    getCurrentCart(localStorage);
   });
 };
 
@@ -258,6 +281,5 @@ document.addEventListener("DOMContentLoaded", () => {
       addToBagButtons();
       handleAddToBagButtons();
       showUpdatedBag();
-      showCart();
     });
 });
