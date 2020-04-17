@@ -1,59 +1,41 @@
 @import "style.scss";
 
 .bag-container {
-  position: absolute;
-  top: 90px;
-  right: 0;
-  width: 400px;
+  margin: 30px auto;
+  max-width: 600px;
   padding: 15px;
   font-family: $font;
-  background-color: $second-color;
+  background-color: $third-color;
   color: $main-color;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-  transform: translate(0, -110%);
-  transition: 0.8s;
-
-  .exit-btn {
-    display: flex;
-    justify-content: center;
-    border: none;
-    width: 22px;
-    height: 22px;
-    background-color: $second-color;
-    outline: none;
-    cursor: pointer;
-
-    i {
-      font-size: 20px;
-      color: $main-color;
-    }
-  }
 
   .your-bag {
     width: 90%;
-    margin: 10px auto;
+    margin: 0 auto;
 
     h2 {
+      display: flex;
+      justify-content: center;
       margin: 5px 0;
+      font-size: 35px;
     }
 
     .each-cheese-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin: 20px auto;
 
       .each-cheese {
         display: flex;
-        align-items: center;
-        // justify-content: center;
+        justify-content: center;
 
         .img-container {
           display: flex;
           align-items: center;
           justify-content: center;
           position: relative;
-          height: 70px;
-          width: 100px;
+          height: 100px;
+          width: 160px;
 
           img {
             width: 100%;
@@ -68,10 +50,12 @@
           font-size: 14px;
 
           h3 {
+            font-size: 22px;
             margin: 0;
           }
 
           p {
+            font-size: 17px;
             margin: 0;
           }
 
@@ -80,7 +64,7 @@
             outline: none;
             border: none;
             padding: 0;
-            background-color: $second-color;
+            background-color: $third-color;
             color: $main-color;
             cursor: pointer;
             font-family: $font;
@@ -92,43 +76,52 @@
       .quantity {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         flex-direction: column;
+        height: 80px;
+
+        .quantity-count {
+          font-size: 20px;
+        }
+
         button {
           outline: none;
           border: none;
           padding: 0;
-          background-color: $second-color;
+          background-color: $third-color;
           color: $main-color;
           cursor: pointer;
 
           i {
-            font-size: 15px;
+            font-size: 20px;
           }
         }
       }
     }
-    h4 {
-      margin: 10px 0 3px 0;
+    .put-clear-btn-right {
+      display: flex;
+      justify-content: flex-end;
+      .clear-btn {
+        color: $third-color;
+        background-color: $main-color;
+        border: none;
+        border-radius: 5px;
+        font-family: $font;
+        font-size: 10px;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s ease-in-out;
+      }
+      .clear-btn:hover {
+        background-color: $second-color;
+        cursor: pointer;
+      }
     }
-
-    .clear-btn {
-      color: $third-color;
-      background-color: $main-color;
-      border: none;
-      border-radius: 5px;
-      font-family: $font;
-      font-size: 10px;
-      cursor: pointer;
-      outline: none;
-      transition: all 0.3s ease-in-out;
-    }
-    .clear-btn:hover {
-      color: $second-color;
-      cursor: pointer;
+    .total-cost {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      font-size: 25px;
     }
   }
-}
-
-.active {
-  transform: translate(0, 0);
 }
