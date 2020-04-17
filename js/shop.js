@@ -8,7 +8,7 @@ const cartIcon = document
   .querySelector(".cart-icon")
   .addEventListener("click", () => {
     bagContainer.classList.toggle("active");
-  });
+  }); 
 const bagExit = document
   .querySelector(".exit-btn")
   .addEventListener("click", () => {
