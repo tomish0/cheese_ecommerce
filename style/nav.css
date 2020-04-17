@@ -106,4 +106,9 @@ nav .cart-icon .items-total {
 nav .cart-icon i {
   font-size: 30px;
 }
+
+.active {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
 /*# sourceMappingURL=nav.css.map */
