@@ -1,0 +1,155 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+  min-height: 100%;
+}
+
+.payment-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-family: "Baloo Paaji 2", cursive;
+}
+
+.payment-form .details-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+}
+
+.payment-form .details-container .personal-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.payment-form .details-container .personal-details > * {
+  margin: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.payment-form .details-container .personal-details > * input {
+  margin-left: 5px;
+  width: 150px;
+  font-family: "Baloo Paaji 2", cursive;
+  border-radius: 3px;
+  border: none;
+  padding: 5px;
+  height: 25px;
+}
+
+.payment-form .details-container .personal-details .address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.payment-form .details-container .personal-details .address .address-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.payment-form .details-container .personal-details .address .address-inputs input {
+  margin: 5px 0;
+}
+
+.payment-form .details-container .payment-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.payment-form .details-container .payment-details > * {
+  margin: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.payment-form .details-container .payment-details > * input {
+  margin-left: 5px;
+  width: 150px;
+  font-family: "Baloo Paaji 2", cursive;
+  border-radius: 3px;
+  border: none;
+  padding: 5px;
+  height: 25px;
+}
+
+.payment-form .pay-btn {
+  margin: 20px;
+  font-size: 15px;
+  color: #eeeeee;
+  background-color: #1f363d;
+  border: none;
+  border-radius: 5px;
+  font-family: "Baloo Paaji 2", cursive;
+  outline: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.payment-form .pay-btn:hover {
+  background-color: #a3b8af;
+  cursor: pointer;
+}
+/*# sourceMappingURL=payment-form.css.map */

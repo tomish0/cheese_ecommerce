@@ -1,8 +1,6 @@
-// Variables
-const productsContainer = document.querySelector(".products-container");
+const itemsTotal = document.querySelector("#items-total");
 const bagCheesesContainer = document.querySelector(".cheeses-container");
 const totalCost = document.querySelector(".total-cost");
-const itemsTotal = document.querySelector("#items-total");
 const bagContainer = document.querySelector(".bag-container");
 const listWrapper = document.querySelector(".list-wrapper");
 const cartIcon = document
@@ -15,11 +13,6 @@ const dropDown = document
   .addEventListener("click", () => {
     listWrapper.classList.toggle("active");
   });
-const bagExit = document
-  .querySelector(".exit-btn")
-  .addEventListener("click", () => {
-    bagContainer.classList.remove("active");
-  });
 const allCheeses =
   JSON.parse(localStorage.getItem("allCheeses")) !== null
     ? JSON.parse(localStorage.getItem("allCheeses"))
@@ -28,38 +21,6 @@ let bag =
   JSON.parse(localStorage.getItem("bag")) !== null
     ? JSON.parse(localStorage.getItem("bag"))
     : [];
-
-async function getCheeses() {
-  try {
-    let result = await fetch("cheeses.json");
-    let data = await result.json();
-    JSON.parse(localStorage.getItem("allCheeses")) === null
-      ? localStorage.setItem("allCheeses", JSON.stringify(data.cheeses))
-      : null;
-    return data.cheeses;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-displayCheeses = () => {
-  let result = "";
-  allCheeses.forEach((cheese) => {
-    result += `<div class="each-cheese" id="${cheese.id}">
-      <div class="img-container">
-        <img src="${cheese.image.url}" alt="" />
-        <div class="add-to-bag">
-          <button class="add-to-bag-btn" id="${cheese.id}"><i class="fas fa-shopping-cart"></i> Add to Bag</button>
-        </div>
-      </div>
-      <div class="each-cheese-info">
-        <h3>${cheese.title}</h3>
-        <p>£${cheese.price}</p>
-      </div>
-    </div>`;
-  });
-  productsContainer.innerHTML = result;
-};
 
 getCurrentCart = (localStorage) => {
   if (localStorage.itemsTotal > 0) {
@@ -71,44 +32,36 @@ getCurrentCart = (localStorage) => {
   }
 };
 
-addToBagButtons = () => {
-  const addToBagButtons = [...document.querySelectorAll(".add-to-bag-btn")];
-  addToBagButtons.forEach((btn) => {
-    btn.addEventListener("click", (event) => {
-      event.target.innerHTML = "In Bag";
-      event.target.disabled = true;
-      let correctCheese = allCheeses.find((cheese) => cheese.id === btn.id);
-      let cheeseInBag = { ...correctCheese, quantity: 1, inBag: true };
-      bag.unshift(cheeseInBag);
-      let correctCheeseIndex = allCheeses.findIndex(
-        (cheese) => cheese.id === correctCheese.id
-      );
-      allCheeses[correctCheeseIndex] = cheeseInBag;
-      localStorage.setItem("bag", JSON.stringify(bag));
-      localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
-
-      bagContainer.classList.add("active");
-
-      showUpdatedBag();
-      increasePriceTotal();
-      increaseQuantityTotal();
-      getCurrentCart(localStorage);
-    });
+showUpdatedBag = () => {
+  let priceTotal =
+    JSON.parse(localStorage.getItem("priceTotal")) !== null
+      ? JSON.parse(localStorage.getItem("priceTotal"))
+      : 0;
+  totalCost.innerText = `Total: £${priceTotal}`;
+  let result = "";
+  bag.forEach((cheese) => {
+    result += `<div class="each-cheese-container">
+          <div class="each-cheese" id="${cheese.id}">
+          <div class="img-container">
+            <img src="${cheese.image.url}" alt="" />
+          </div>
+          <div class="each-cheese-info">
+            <h3>${cheese.title}</h3>
+            <p>£${cheese.price}</p>
+            <button class="remove-btn" id="${cheese.id}"><i class="fas fa-trash"></i> Remove</button>
+          </div>
+        </div>
+        <div class="quantity">
+          <button class="quantity-up" id="${cheese.id}"><i class="fas fa-sort-up"></i></button>
+          <div class="quantity-count">${cheese.quantity}</div>
+          <button class="quantity-down" id="${cheese.id}"><i class="fas fa-sort-down"></i></button>
+        </div>
+      </div>`;
   });
-};
-
-handleAddToBagButtons = () => {
-  const addToBagButtons = [...document.querySelectorAll(".add-to-bag-btn")];
-  allCheeses.forEach((cheese) => {
-    let inBagButtons = addToBagButtons.find((btn) => btn.id === cheese.id);
-    if (cheese.inBag) {
-      inBagButtons.innerHTML = "In Bag";
-      inBagButtons.disabled = true;
-    } else {
-      inBagButtons.innerHTML = `<i class="fas fa-shopping-cart"></i> Add to Bag`;
-      inBagButtons.disabled = false;
-    }
-  });
+  bagCheesesContainer.innerHTML = result;
+  removeFromBag();
+  increaseQuantityTotal();
+  decreaseQuantityTotal();
 };
 
 removeFromBag = () => {
@@ -140,7 +93,6 @@ removeFromBag = () => {
 
       showUpdatedBag();
       decreaseQuantityTotal(correctCheese);
-      handleAddToBagButtons();
       getCurrentCart(localStorage);
     });
   });
@@ -162,7 +114,6 @@ removeFromBag = () => {
     localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
     localStorage.setItem("bag", JSON.stringify(bag));
     showUpdatedBag();
-    handleAddToBagButtons();
     getCurrentCart(localStorage);
   });
 };
@@ -186,40 +137,7 @@ quantityRemoveFromBag = (correctCheese) => {
 
   showUpdatedBag();
   decreasePriceTotal(correctCheese);
-  handleAddToBagButtons();
   getCurrentCart(localStorage);
-};
-
-showUpdatedBag = () => {
-  let priceTotal =
-    JSON.parse(localStorage.getItem("priceTotal")) !== null
-      ? JSON.parse(localStorage.getItem("priceTotal"))
-      : 0;
-  totalCost.innerText = `Total: £${priceTotal}`;
-  let result = "";
-  bag.forEach((cheese) => {
-    result += `<div class="each-cheese-container">
-        <div class="each-cheese" id="${cheese.id}">
-        <div class="img-container">
-          <img src="${cheese.image.url}" alt="" />
-        </div>
-        <div class="each-cheese-info">
-          <h3>${cheese.title}</h3>
-          <p>£${cheese.price}</p>
-          <button class="remove-btn" id="${cheese.id}"><i class="fas fa-trash"></i> Remove</button>
-        </div>
-      </div>
-      <div class="quantity">
-        <button class="quantity-up" id="${cheese.id}"><i class="fas fa-sort-up"></i></button>
-        <div class="quantity-count">${cheese.quantity}</div>
-        <button class="quantity-down" id="${cheese.id}"><i class="fas fa-sort-down"></i></button>
-      </div>
-    </div>`;
-  });
-  bagCheesesContainer.innerHTML = result;
-  removeFromBag();
-  increaseQuantityTotal();
-  decreaseQuantityTotal();
 };
 
 increasePriceTotal = () => {
@@ -277,15 +195,6 @@ decreaseQuantityTotal = () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // localStorage.clear();
-  getCheeses()
-    .then(() => {
-      displayCheeses();
-    })
-    .then(() => {
-      getCurrentCart(localStorage);
-      addToBagButtons();
-      handleAddToBagButtons();
-      showUpdatedBag();
-    });
+  getCurrentCart(localStorage);
+  showUpdatedBag();
 });

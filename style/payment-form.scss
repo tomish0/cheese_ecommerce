@@ -1,0 +1,88 @@
+@import "style.scss";
+
+.payment-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-family: $font;
+
+  .details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+
+    .personal-details {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+
+      > * {
+        margin: 5px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input {
+          margin-left: 5px;
+          width: 150px;
+          font-family: $font;
+          border-radius: 3px;
+          border: none;
+          padding: 5px;
+          height: 25px;
+        }
+      }
+
+      .address {
+        display: flex;
+        align-items: flex-start;
+        .address-inputs {
+          display: flex;
+          flex-direction: column;
+          input {
+            margin: 5px 0;
+          }
+        }
+      }
+    }
+    .payment-details {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+
+      > * {
+        margin: 5px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input {
+          margin-left: 5px;
+          width: 150px;
+          font-family: $font;
+          border-radius: 3px;
+          border: none;
+          padding: 5px;
+          height: 25px;
+        }
+      }
+    }
+  }
+  .pay-btn {
+    margin: 20px;
+    font-size: 15px;
+    color: $third-color;
+    background-color: $main-color;
+    border: none;
+    border-radius: 5px;
+    font-family: $font;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+  .pay-btn:hover {
+    background-color: $second-color;
+    cursor: pointer;
+  }
+}

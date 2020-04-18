@@ -11,50 +11,28 @@ body {
 }
 
 .bag-container {
-  position: absolute;
-  top: 90px;
-  right: 0;
-  width: 400px;
+  margin: 30px auto;
+  max-width: 600px;
   padding: 15px;
   font-family: "Baloo Paaji 2", cursive;
-  background-color: #a3b8af;
+  background-color: #eeeeee;
   color: #1f363d;
-  border-radius: 0 0 0 20px;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-  -webkit-transform: translate(0, -110%);
-          transform: translate(0, -110%);
-  -webkit-transition: 0.8s;
-  transition: 0.8s;
 }
 
-.bag-container .exit-btn {
+.bag-container .your-bag {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bag-container .your-bag h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: none;
-  width: 22px;
-  height: 22px;
-  background-color: #a3b8af;
-  outline: none;
-  cursor: pointer;
-}
-
-.bag-container .exit-btn i {
-  font-size: 20px;
-  color: #1f363d;
-}
-
-.bag-container .your-bag {
-  width: 90%;
-  margin: 10px auto;
-}
-
-.bag-container .your-bag h2 {
   margin: 5px 0;
+  font-size: 35px;
 }
 
 .bag-container .your-bag .each-cheese-container {
@@ -67,15 +45,16 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 20px auto;
 }
 
 .bag-container .your-bag .each-cheese-container .each-cheese {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .bag-container .your-bag .each-cheese-container .each-cheese .img-container {
@@ -89,8 +68,8 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  height: 70px;
-  width: 100px;
+  height: 100px;
+  width: 160px;
 }
 
 .bag-container .your-bag .each-cheese-container .each-cheese .img-container img {
@@ -107,10 +86,12 @@ body {
 }
 
 .bag-container .your-bag .each-cheese-container .each-cheese .each-cheese-info h3 {
+  font-size: 22px;
   margin: 0;
 }
 
 .bag-container .your-bag .each-cheese-container .each-cheese .each-cheese-info p {
+  font-size: 17px;
   margin: 0;
 }
 
@@ -119,7 +100,7 @@ body {
   outline: none;
   border: none;
   padding: 0;
-  background-color: #a3b8af;
+  background-color: #eeeeee;
   color: #1f363d;
   cursor: pointer;
   font-family: "Baloo Paaji 2", cursive;
@@ -133,30 +114,43 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 80px;
+}
+
+.bag-container .your-bag .each-cheese-container .quantity .quantity-count {
+  font-size: 20px;
 }
 
 .bag-container .your-bag .each-cheese-container .quantity button {
   outline: none;
   border: none;
   padding: 0;
-  background-color: #a3b8af;
+  background-color: #eeeeee;
   color: #1f363d;
   cursor: pointer;
 }
 
 .bag-container .your-bag .each-cheese-container .quantity button i {
-  font-size: 15px;
+  font-size: 20px;
 }
 
-.bag-container .your-bag h4 {
-  margin: 10px 0 3px 0;
+.bag-container .your-bag .put-clear-btn-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
-.bag-container .your-bag .clear-btn {
+.bag-container .your-bag .put-clear-btn-right .clear-btn {
   color: #eeeeee;
   background-color: #1f363d;
   border: none;
@@ -169,13 +163,19 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.bag-container .your-bag .clear-btn:hover {
-  color: #a3b8af;
+.bag-container .your-bag .put-clear-btn-right .clear-btn:hover {
+  background-color: #a3b8af;
   cursor: pointer;
 }
 
-.active {
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
+.bag-container .your-bag .total-cost {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px 0;
+  font-size: 25px;
 }
-/*# sourceMappingURL=bag.css.map */
+/*# sourceMappingURL=payment-bag.css.map */
