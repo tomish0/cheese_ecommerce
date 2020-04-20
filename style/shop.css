@@ -106,6 +106,7 @@ body {
           flex-direction: column;
   font-family: "Baloo Paaji 2", cursive;
   color: #1f363d;
+  cursor: default;
 }
 
 .products-container .each-cheese .each-cheese-info h3 {

@@ -1,10 +1,10 @@
 @import "style.scss";
 
 .list-wrapper {
-  position: absolute;
+  position: fixed;
   top: 90px;
   left: 0;
-  width: 200px;
+  width: 150px;
   padding: 30px;
   background-color: $second-color;
   color: $main-color;
@@ -13,6 +13,7 @@
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   transform: translate(0, -110%);
   transition: 0.8s;
+  cursor: pointer;
 
   .nav-list {
     display: flex;
@@ -27,12 +28,30 @@
     li {
       display: flex;
       justify-content: space-between;
+      position: relative;
       a {
         font-family: $font;
         text-decoration: none;
         color: $main-color;
+        width: 100%;
       }
+      a::after {
+        content: "";
+        position: absolute;
+        top: 80%;
+        height: 2px;
+        width: 0%;
+        left: 0%;
+        background-color: $main-color;
+        opacity: 0.5;
+        transition: 0.2s ease all 0.3s;
+      }
+      
     }
+    li:hover a::after {
+        width: 75%;
+        transition: 0.3s ease all;
+      }
   }
 }
 
