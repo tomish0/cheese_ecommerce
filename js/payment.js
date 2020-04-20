@@ -3,16 +3,17 @@ const bagCheesesContainer = document.querySelector(".cheeses-container");
 const totalCost = document.querySelector(".total-cost");
 const bagContainer = document.querySelector(".bag-container");
 const listWrapper = document.querySelector(".list-wrapper");
+const menuWrapper = document.querySelector(".menu-wrapper");
+
 const cartIcon = document
   .querySelector(".cart-icon")
   .addEventListener("click", () => {
     bagContainer.classList.toggle("active");
   });
-const dropDown = document
-  .querySelector(".menu_wrapper")
-  .addEventListener("click", () => {
-    listWrapper.classList.toggle("active");
-  });
+const dropDown = menuWrapper.addEventListener("click", () => {
+  listWrapper.classList.toggle("active");
+  menuWrapper.classList.toggle("active");
+});
 const allCheeses =
   JSON.parse(localStorage.getItem("allCheeses")) !== null
     ? JSON.parse(localStorage.getItem("allCheeses"))

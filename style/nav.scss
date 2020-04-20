@@ -1,5 +1,13 @@
 @import "style.scss";
 
+$height-wrapper: 20px;
+$width-line: 40px;
+$height-line: 5px;
+
+$rotation: 45deg;
+$translateY: ($height-wrapper / 2);
+$translateX: 0;
+
 nav {
   display: flex;
   align-items: center;
@@ -15,47 +23,77 @@ nav {
     $second-color
   );
   color: $main-color;
-  // box-shadow: 0px 3px 25px #888888;
   z-index: 100;
   font-family: $font;
 
-  .menu_wrapper {
-    height: 25px;
+  .menu-wrapper {
+    height: $height-wrapper;
     position: relative;
-    width: 40px;
+    width: $width-line;
     display: flex;
     align-items: center;
+    cursor: pointer;
+    z-index: 120;
 
-    .menu {
-      background: $main-color;
-      border-radius: 5px;
-      height: 5px;
-      width: 100%;
-    }
-
-    .menu:before,
-    .menu:after {
-      background: $main-color;
-      content: "";
+    .line {
       display: block;
-      height: 5px;
-      border-radius: 5px;
+      background: $main-color;
+      width: $width-line;
+      height: $height-line;
       position: absolute;
-      transition: all 0.2s ease-out;
-      width: 100%;
-    }
+      left: 0;
+      border-radius: ($height-line / 2);
+      transition: all 0.3s ease-in-out;
 
-    .menu:before {
-      top: 0;
+      &.line-1 {
+        top: 0;
+      }
+      &.line-2 {
+        top: 50%;
+      }
+      &.line-3 {
+        top: 100%;
+      }
     }
-
-    .menu:after {
-      bottom: 0;
+    &:hover,
+    &:focus {
+      .line-1 {
+        transform: translateY($height-line / 2 * -1);
+        -webkit-transform: translateY($height-line / 2 * -1);
+        -moz-transform: translateY($height-line / 2 * -1);
+      }
+      .line-3 {
+        transform: translateY($height-line / 2);
+        -webkit-transform: translateY($height-line / 2);
+        -moz-transform: translateY($height-line / 2);
+      }
+    }
+    &.active {
+      .line-1 {
+        transform: translateY($translateY) translateX($translateX)
+          rotate($rotation);
+        -webkit-transform: translateY($translateY) translateX($translateX)
+          rotate($rotation);
+        -moz-transform: translateY($translateY) translateX($translateX)
+          rotate($rotation);
+      }
+      .line-2 {
+        opacity: 0;
+      }
+      .line-3 {
+        transform: translateY($translateY * -1) translateX($translateX)
+          rotate($rotation * -1);
+        -webkit-transform: translateY($translateY * -1) translateX($translateX)
+          rotate($rotation * -1);
+        -moz-transform: translateY($translateY * -1) translateX($translateX)
+          rotate($rotation * -1);
+      }
     }
   }
 
   h1 {
     font-size: 40px;
+    cursor: default;
   }
 
   .cart-icon {
@@ -82,4 +120,3 @@ nav {
     }
   }
 }
-

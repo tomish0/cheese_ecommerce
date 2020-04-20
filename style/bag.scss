@@ -1,10 +1,10 @@
 @import "style.scss";
 
 .bag-container {
-  position: absolute;
+  position: fixed;
   top: 90px;
   right: 0;
-  width: 400px;
+  width: 350px;
   padding: 15px;
   font-family: $font;
   background-color: $second-color;
@@ -108,28 +108,50 @@
         }
       }
     }
-    h4 {
-      margin: 10px 0 3px 0;
+    
+    .total-cost {
+      margin: 15px 0;
+      font-size: 17px;
     }
-
-    .clear-btn {
-      color: $third-color;
-      background-color: $main-color;
-      border: none;
-      border-radius: 5px;
-      font-family: $font;
-      font-size: 10px;
-      cursor: pointer;
-      outline: none;
-      transition: all 0.3s ease-in-out;
-    }
-    .clear-btn:hover {
-      color: $second-color;
-      cursor: pointer;
+    .checkout-clear-btns {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .checkout-btn {
+        color: $third-color;
+        background-color: $main-color;
+        border: none;
+        border-radius: 5px;
+        font-family: $font;
+        font-size: 15px;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s ease-in-out;
+      }
+      .checkout-btn:hover {
+        color: $second-color;
+        cursor: pointer;
+      }
+      .clear-btn {
+        color: $third-color;
+        background-color: $main-color;
+        border: none;
+        border-radius: 5px;
+        font-family: $font;
+        font-size: 10px;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s ease-in-out;
+      }
+      .clear-btn:hover {
+        color: $second-color;
+        cursor: pointer;
+      }
     }
   }
 }
 
 .active {
   transform: translate(0, 0);
+  // position: fixed;
 }

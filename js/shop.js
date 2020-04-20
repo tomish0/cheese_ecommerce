@@ -5,16 +5,17 @@ const totalCost = document.querySelector(".total-cost");
 const itemsTotal = document.querySelector("#items-total");
 const bagContainer = document.querySelector(".bag-container");
 const listWrapper = document.querySelector(".list-wrapper");
+const menuWrapper = document.querySelector(".menu-wrapper");
+
 const cartIcon = document
   .querySelector(".cart-icon")
   .addEventListener("click", () => {
     bagContainer.classList.toggle("active");
   });
-const dropDown = document
-  .querySelector(".menu_wrapper")
-  .addEventListener("click", () => {
-    listWrapper.classList.toggle("active");
-  });
+const dropDown = menuWrapper.addEventListener("click", () => {
+  listWrapper.classList.toggle("active");
+  menuWrapper.classList.toggle("active");
+});
 const bagExit = document
   .querySelector(".exit-btn")
   .addEventListener("click", () => {

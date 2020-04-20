@@ -11,10 +11,10 @@ body {
 }
 
 .list-wrapper {
-  position: absolute;
+  position: fixed;
   top: 90px;
   left: 0;
-  width: 200px;
+  width: 150px;
   padding: 30px;
   background-color: #a3b8af;
   color: #1f363d;
@@ -26,6 +26,7 @@ body {
           transform: translate(0, -110%);
   -webkit-transition: 0.8s;
   transition: 0.8s;
+  cursor: pointer;
 }
 
 .list-wrapper .nav-list {
@@ -53,12 +54,33 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
 }
 
 .list-wrapper .nav-list li a {
   font-family: "Baloo Paaji 2", cursive;
   text-decoration: none;
   color: #1f363d;
+  width: 100%;
+}
+
+.list-wrapper .nav-list li a::after {
+  content: "";
+  position: absolute;
+  top: 80%;
+  height: 2px;
+  width: 0%;
+  left: 0%;
+  background-color: #1f363d;
+  opacity: 0.5;
+  -webkit-transition: 0.2s ease all 0.3s;
+  transition: 0.2s ease all 0.3s;
+}
+
+.list-wrapper .nav-list li:hover a::after {
+  width: 75%;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
 }
 
 .active {
