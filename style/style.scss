@@ -1,13 +1,14 @@
+// variables used in each css file
 $font: "Baloo Paaji 2", cursive;
 $main-color: #1f363d;
 $second-color: rgb(163, 184, 175);
 $third-color: rgb(238, 238, 238);
 $bright-blue: #7dcfb6;
 
+// global styling
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   padding: 0;

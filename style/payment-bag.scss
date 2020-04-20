@@ -1,127 +1,121 @@
 @import "style.scss";
 
+// Static bag on payment page
 .bag-container {
   margin: 30px auto;
-  max-width: 600px;
+  max-width: 500px;
   padding: 15px;
   font-family: $font;
   background-color: $third-color;
   color: $main-color;
 
-  .your-bag {
-    width: 90%;
-    margin: 0 auto;
+  // 'Your Bag'
+  h2 {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+    font-size: 35px;
+  }
 
-    h2 {
+  // .each-cheese-container is filled dynamically with each individual cheese added to bag
+  // .each-cheese-container fills .cheeses-container
+  .each-cheese-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+
+    // Container for cheese, excludes quanity
+    .each-cheese {
       display: flex;
       justify-content: center;
-      margin: 5px 0;
-      font-size: 35px;
-    }
 
-    .each-cheese-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 20px auto;
-
-      .each-cheese {
+      .img-container {
         display: flex;
+        align-items: center;
         justify-content: center;
-
-        .img-container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          height: 100px;
-          width: 160px;
-
-          img {
-            width: 100%;
-            height: 100%;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-          }
-        }
-
-        .each-cheese-info {
-          margin-left: 10px;
-          height: 80px;
-          font-size: 14px;
-
-          h3 {
-            font-size: 22px;
-            margin: 0;
-          }
-
-          p {
-            font-size: 17px;
-            margin: 0;
-          }
-
-          button {
-            margin: 0;
-            outline: none;
-            border: none;
-            padding: 0;
-            background-color: $third-color;
-            color: $main-color;
-            cursor: pointer;
-            font-family: $font;
-            font-size: 12px;
-          }
+        position: relative;
+        height: 100px;
+        width: 160px;
+        img {
+          width: 100%;
+          height: 100%;
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
         }
       }
 
-      .quantity {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: column;
+      .each-cheese-info {
+        margin-left: 10px;
         height: 80px;
-
-        .quantity-count {
-          font-size: 20px;
+        font-size: 14px;
+        h3 {
+          font-size: 22px;
+          margin: 0;
         }
-
+        p {
+          font-size: 17px;
+          margin: 0;
+        }
         button {
+          margin: 0;
           outline: none;
           border: none;
           padding: 0;
           background-color: $third-color;
           color: $main-color;
           cursor: pointer;
-
-          i {
-            font-size: 20px;
-          }
+          font-family: $font;
+          font-size: 12px;
         }
       }
     }
-    .put-clear-btn-right {
+
+    // .quantity of each cheese to right of .each-cheese
+    .quantity {
       display: flex;
-      justify-content: center;
-      .clear-btn {
-        color: $third-color;
-        background-color: $main-color;
-        border: none;
-        border-radius: 5px;
-        font-family: $font;
-        font-size: 10px;
-        cursor: pointer;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+      height: 80px;
+      .quantity-count {
+        font-size: 20px;
+      }
+      button {
         outline: none;
-        transition: all 0.3s ease-in-out;
-      }
-      .clear-btn:hover {
-        background-color: $second-color;
+        border: none;
+        padding: 0;
+        background-color: $third-color;
+        color: $main-color;
         cursor: pointer;
+        i {
+          font-size: 20px;
+        }
       }
     }
-    .total-cost {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-      font-size: 25px;
-    }
+  }
+
+  .clear-btn {
+    display: flex;
+    margin: 10px auto;
+    color: $third-color;
+    background-color: $main-color;
+    border: none;
+    border-radius: 5px;
+    font-family: $font;
+    font-size: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+  .clear-btn:hover {
+    background-color: $second-color;
+    cursor: pointer;
+  }
+
+  .total-cost {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    font-size: 25px;
   }
 }

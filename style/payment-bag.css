@@ -12,19 +12,14 @@ body {
 
 .bag-container {
   margin: 30px auto;
-  max-width: 600px;
+  max-width: 500px;
   padding: 15px;
   font-family: "Baloo Paaji 2", cursive;
   background-color: #eeeeee;
   color: #1f363d;
 }
 
-.bag-container .your-bag {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.bag-container .your-bag h2 {
+.bag-container h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,7 +30,7 @@ body {
   font-size: 35px;
 }
 
-.bag-container .your-bag .each-cheese-container {
+.bag-container .each-cheese-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,7 +43,7 @@ body {
   margin: 20px auto;
 }
 
-.bag-container .your-bag .each-cheese-container .each-cheese {
+.bag-container .each-cheese-container .each-cheese {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,7 +52,7 @@ body {
           justify-content: center;
 }
 
-.bag-container .your-bag .each-cheese-container .each-cheese .img-container {
+.bag-container .each-cheese-container .each-cheese .img-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,30 +67,30 @@ body {
   width: 160px;
 }
 
-.bag-container .your-bag .each-cheese-container .each-cheese .img-container img {
+.bag-container .each-cheese-container .each-cheese .img-container img {
   width: 100%;
   height: 100%;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
-.bag-container .your-bag .each-cheese-container .each-cheese .each-cheese-info {
+.bag-container .each-cheese-container .each-cheese .each-cheese-info {
   margin-left: 10px;
   height: 80px;
   font-size: 14px;
 }
 
-.bag-container .your-bag .each-cheese-container .each-cheese .each-cheese-info h3 {
+.bag-container .each-cheese-container .each-cheese .each-cheese-info h3 {
   font-size: 22px;
   margin: 0;
 }
 
-.bag-container .your-bag .each-cheese-container .each-cheese .each-cheese-info p {
+.bag-container .each-cheese-container .each-cheese .each-cheese-info p {
   font-size: 17px;
   margin: 0;
 }
 
-.bag-container .your-bag .each-cheese-container .each-cheese .each-cheese-info button {
+.bag-container .each-cheese-container .each-cheese .each-cheese-info button {
   margin: 0;
   outline: none;
   border: none;
@@ -107,7 +102,7 @@ body {
   font-size: 12px;
 }
 
-.bag-container .your-bag .each-cheese-container .quantity {
+.bag-container .each-cheese-container .quantity {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -124,11 +119,11 @@ body {
   height: 80px;
 }
 
-.bag-container .your-bag .each-cheese-container .quantity .quantity-count {
+.bag-container .each-cheese-container .quantity .quantity-count {
   font-size: 20px;
 }
 
-.bag-container .your-bag .each-cheese-container .quantity button {
+.bag-container .each-cheese-container .quantity button {
   outline: none;
   border: none;
   padding: 0;
@@ -137,20 +132,15 @@ body {
   cursor: pointer;
 }
 
-.bag-container .your-bag .each-cheese-container .quantity button i {
+.bag-container .each-cheese-container .quantity button i {
   font-size: 20px;
 }
 
-.bag-container .your-bag .put-clear-btn-right {
+.bag-container .clear-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.bag-container .your-bag .put-clear-btn-right .clear-btn {
+  margin: 10px auto;
   color: #eeeeee;
   background-color: #1f363d;
   border: none;
@@ -163,19 +153,19 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.bag-container .your-bag .put-clear-btn-right .clear-btn:hover {
+.bag-container .clear-btn:hover {
   background-color: #a3b8af;
   cursor: pointer;
 }
 
-.bag-container .your-bag .total-cost {
+.bag-container .total-cost {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 20px 0;
+  margin: 15px 0;
   font-size: 25px;
 }
 /*# sourceMappingURL=payment-bag.css.map */

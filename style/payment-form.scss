@@ -1,5 +1,6 @@
 @import "style.scss";
 
+// payment page form 
 .payment-form {
   display: flex;
   align-items: center;
@@ -9,17 +10,16 @@
   margin-bottom: 20px;
   font-family: $font;
 
+  // customer details container
   .details-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-
     .personal-details {
       display: flex;
       justify-content: space-evenly;
       flex-direction: column;
-
       > * {
         margin: 5px 0;
         display: flex;
@@ -35,7 +35,6 @@
           height: 25px;
         }
       }
-
       .address {
         display: flex;
         align-items: flex-start;
@@ -48,11 +47,12 @@
         }
       }
     }
+
+    // payment details container
     .payment-details {
       display: flex;
       justify-content: space-evenly;
       flex-direction: column;
-
       > * {
         margin: 5px 0;
         display: flex;
@@ -70,6 +70,8 @@
       }
     }
   }
+
+  // complete payment button
   .pay-btn {
     margin: 20px;
     font-size: 15px;
