@@ -1,5 +1,6 @@
 @import "style.scss";
 
+// Container for the drop down list of links to other pages
 .list-wrapper {
   position: fixed;
   top: 90px;
@@ -15,6 +16,7 @@
   transition: 0.8s;
   cursor: pointer;
 
+  // each link 
   .nav-list {
     display: flex;
     flex-direction: column;
@@ -24,7 +26,6 @@
     margin: 0;
     height: 150px;
     font-size: 25px;
-
     li {
       display: flex;
       justify-content: space-between;
@@ -35,6 +36,7 @@
         color: $main-color;
         width: 100%;
       }
+      // For underline transition 
       a::after {
         content: "";
         position: absolute;
@@ -46,8 +48,8 @@
         opacity: 0.5;
         transition: 0.2s ease all 0.3s;
       }
-      
     }
+    // For underline transition
     li:hover a::after {
         width: 75%;
         transition: 0.3s ease all;
@@ -55,6 +57,7 @@
   }
 }
 
+// active is dynamically toggled to drop list down upon click on menu
 .active {
   transform: translate(0, 0);
 }

@@ -1,13 +1,16 @@
 @import "style.scss";
 
+// For hamburger menu
 $height-wrapper: 20px;
 $width-line: 40px;
 $height-line: 5px;
 
+// Used to transform hamburger menu upon click
 $rotation: 45deg;
 $translateY: ($height-wrapper / 2);
 $translateX: 0;
 
+// Navigation bar - sticky to top of page 
 nav {
   display: flex;
   align-items: center;
@@ -26,6 +29,7 @@ nav {
   z-index: 100;
   font-family: $font;
 
+  // Hamburger menu
   .menu-wrapper {
     height: $height-wrapper;
     position: relative;
@@ -34,7 +38,6 @@ nav {
     align-items: center;
     cursor: pointer;
     z-index: 120;
-
     .line {
       display: block;
       background: $main-color;
@@ -44,7 +47,6 @@ nav {
       left: 0;
       border-radius: ($height-line / 2);
       transition: all 0.3s ease-in-out;
-
       &.line-1 {
         top: 0;
       }
@@ -55,6 +57,7 @@ nav {
         top: 100%;
       }
     }
+    // move top & bottom lines of hamburger up & down respectively upon hover
     &:hover,
     &:focus {
       .line-1 {
@@ -68,6 +71,7 @@ nav {
         -moz-transform: translateY($height-line / 2);
       }
     }
+    // active toggled upon click on .menu-wrapper to transform into cross
     &.active {
       .line-1 {
         transform: translateY($translateY) translateX($translateX)
@@ -91,15 +95,15 @@ nav {
     }
   }
 
+  // title 'All you can Cheese'
   h1 {
     font-size: 40px;
     cursor: default;
   }
-
+  // cart icon with dynaically rendered items-total div 
   .cart-icon {
     position: relative;
     cursor: pointer;
-
     .items-total {
       display: flex;
       align-items: center;
@@ -114,7 +118,6 @@ nav {
       z-index: 100;
       color: white;
     }
-
     i {
       font-size: 30px;
     }
