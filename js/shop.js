@@ -1,4 +1,4 @@
-// Variables
+// VARIABLES
 const productsContainer = document.querySelector(".products-container");
 const bagCheesesContainer = document.querySelector(".cheeses-container");
 const totalCost = document.querySelector(".total-cost");
@@ -6,15 +6,18 @@ const itemsTotal = document.querySelector("#items-total");
 const bagContainer = document.querySelector(".bag-container");
 const listWrapper = document.querySelector(".list-wrapper");
 const menuWrapper = document.querySelector(".menu-wrapper");
+// event listener on cart icon to drop down bag
 const cartIcon = document
   .querySelector(".cart-icon")
   .addEventListener("click", () => {
     bagContainer.classList.toggle("active");
   });
+// event listener on hamburger menu to drop down list
 const dropDown = menuWrapper.addEventListener("click", () => {
   listWrapper.classList.toggle("active");
   menuWrapper.classList.toggle("active");
 });
+// event listener to exit bag
 const bagExit = document
   .querySelector(".exit-btn")
   .addEventListener("click", () => {
@@ -28,6 +31,8 @@ let bag =
   JSON.parse(localStorage.getItem("bag")) !== null
     ? JSON.parse(localStorage.getItem("bag"))
     : [];
+
+// METHODS
 
 // Get all the cheeses from cheeses.json
 // Put into local storage if allCheeses is an empty array (first time opening website)
