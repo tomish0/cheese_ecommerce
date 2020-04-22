@@ -50,7 +50,6 @@ body {
 .cheese-shop-link button {
   background-color: rgba(144, 148, 146, 0.5);
   font-family: "Baloo Paaji 2", cursive;
-  color: #eeeeee;
   font-size: 20px;
   border-radius: 10px;
   border: 1px solid #eeeeee;
@@ -59,6 +58,11 @@ body {
   cursor: pointer;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+.cheese-shop-link button a {
+  text-decoration: none;
+  color: #eeeeee;
 }
 
 .cheese-shop-link button:hover {

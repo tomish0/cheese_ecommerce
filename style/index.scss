@@ -31,7 +31,6 @@
   button {
     background-color: rgba(144, 148, 146, 0.5);
     font-family: $font;
-    color: $third-color;
     font-size: 20px;
     border-radius: 10px;
     border: 1px solid $third-color;
@@ -39,6 +38,11 @@
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+
+    a {
+      text-decoration: none;
+      color: $third-color;
+    }
   }
   button:hover {
     background-color: $main-color;
