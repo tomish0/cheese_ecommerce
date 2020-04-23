@@ -1,7 +1,6 @@
 {
   "name": "ecommerce_website2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0"
@@ -11,5 +10,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomish0/cheese_ecommerce.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tomish0/cheese_ecommerce/issues"
+  },
+  "homepage": "https://github.com/tomish0/cheese_ecommerce#readme",
+  "description": ""
 }
