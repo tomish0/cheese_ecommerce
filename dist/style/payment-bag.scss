@@ -118,4 +118,28 @@
     margin: 15px 0;
     font-size: 25px;
   }
+
+  #shop-btn-bag-empty {
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 15px;
+      background-color: $main-color;
+      font-family: $font;
+      font-size: 19px;
+      border-radius: 10px;
+      border: 1px solid $third-color;
+      width: 80px;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      a {
+        text-decoration: none;
+        color: $third-color;
+      }
+    }
+    button:hover {
+      background-color: $second-color;
+    }
+  }
 }

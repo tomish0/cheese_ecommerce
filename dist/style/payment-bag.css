@@ -168,4 +168,36 @@ body {
   margin: 15px 0;
   font-size: 25px;
 }
+
+.bag-container #shop-btn-bag-empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bag-container #shop-btn-bag-empty button {
+  margin: 15px;
+  background-color: #1f363d;
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 19px;
+  border-radius: 10px;
+  border: 1px solid #eeeeee;
+  width: 80px;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.bag-container #shop-btn-bag-empty button a {
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+.bag-container #shop-btn-bag-empty button:hover {
+  background-color: #a3b8af;
+}
 /*# sourceMappingURL=payment-bag.css.map */

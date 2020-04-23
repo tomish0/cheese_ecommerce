@@ -5,6 +5,10 @@ const totalCost = document.querySelector(".total-cost");
 const bagContainer = document.querySelector(".bag-container");
 const listWrapper = document.querySelector(".list-wrapper");
 const menuWrapper = document.querySelector(".menu-wrapper");
+const clearBtn = document.querySelector(".clear-btn");
+const paymentForm = document.querySelector(".payment-form");
+const yourBag = document.querySelector("#your-bag");
+const shopBtnBagEmpty = document.querySelector("#shop-btn-bag-empty");
 // event listener on hamburger menu to drop down list
 const dropDown = menuWrapper.addEventListener("click", () => {
   listWrapper.classList.toggle("active");
@@ -23,6 +27,7 @@ let bag =
 
 // Check the local storage if there is an items total
 // if yes, add the number box on the cart
+// if no, remove the bag & payment form, & add link to shop
 getCurrentCart = (localStorage) => {
   if (localStorage.itemsTotal > 0) {
     itemsTotal.classList.add("items-total");
@@ -30,6 +35,11 @@ getCurrentCart = (localStorage) => {
   } else {
     itemsTotal.classList.remove("items-total");
     itemsTotal.innerHTML = null;
+    clearBtn.parentNode.removeChild(clearBtn);
+    paymentForm.parentNode.removeChild(paymentForm);
+    yourBag.innerHTML = "Your Bag is Empty";
+    totalCost.parentNode.removeChild(totalCost);
+    shopBtnBagEmpty.innerHTML = `<button><a href="./shop.html">Shop</a></button>`;
   }
 };
 
@@ -89,12 +99,10 @@ removeFromBag = () => {
         (cheese) => cheese.id === correctCheese.id
       );
       allCheeses[correctAllCheeseIndex] = correctCheese;
-
       localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
       localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
       localStorage.setItem("bag", JSON.stringify(bag));
       localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
-
       showUpdatedBag();
       decreaseQuantityTotal(correctCheese);
       getCurrentCart(localStorage);
@@ -102,26 +110,28 @@ removeFromBag = () => {
   });
 
   const clearAllBtn = document.querySelector(".clear-btn");
-  clearAllBtn.addEventListener("click", () => {
-    // if clear all button is clicked
-    bag.forEach((cheese) => {
-      cheese.inBag = false; // set each cheese inBag to false
-      let correctAllCheeseIndex = allCheeses.findIndex(
-        (allCheesesCheese) => allCheesesCheese.id === cheese.id
-      );
-      allCheeses[correctAllCheeseIndex] = cheese; // allCheeses is updated with altered cheese objects
+  if (clearAllBtn) {
+    clearAllBtn.addEventListener("click", () => {
+      // if clear all button is clicked
+      bag.forEach((cheese) => {
+        cheese.inBag = false; // set each cheese inBag to false
+        let correctAllCheeseIndex = allCheeses.findIndex(
+          (allCheesesCheese) => allCheesesCheese.id === cheese.id
+        );
+        allCheeses[correctAllCheeseIndex] = cheese; // allCheeses is updated with altered cheese objects
+      });
+      bag = []; // remove all cheeses from bag
+      // set items/price totals to 0
+      let priceTotal = 0.0;
+      let itemsTotal = 0;
+      localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
+      localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
+      localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
+      localStorage.setItem("bag", JSON.stringify(bag));
+      showUpdatedBag();
+      getCurrentCart(localStorage);
     });
-    bag = []; // remove all cheeses from bag
-    // set items/price totals to 0
-    let priceTotal = 0.0;
-    let itemsTotal = 0;
-    localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
-    localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
-    localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
-    localStorage.setItem("bag", JSON.stringify(bag));
-    showUpdatedBag();
-    getCurrentCart(localStorage);
-  });
+  }
 };
 
 // If cheese quantity is reduced to 0 upon button click in bag, remove cheese from bag
@@ -136,13 +146,11 @@ quantityRemoveFromBag = (correctCheese) => {
     (cheese) => cheese.id === correctCheese.id
   );
   allCheeses[correctAllCheeseIndex] = correctCheese;
-
   let itemsTotal = JSON.parse(localStorage.getItem("itemsTotal"));
   itemsTotal -= 1;
   localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
   localStorage.setItem("bag", JSON.stringify(bag));
   localStorage.setItem("allCheeses", JSON.stringify(allCheeses));
-
   showUpdatedBag();
   decreasePriceTotal(correctCheese);
   getCurrentCart(localStorage);
