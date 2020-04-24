@@ -25,7 +25,7 @@ nav {
   top: 0;
   width: 100%;
   height: 90px;
-  padding: 30px;
+  padding: 2em;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #cadad3), to(#a3b8af));
   background-image: linear-gradient(to bottom, #cadad3 20%, #a3b8af);
   color: #1f363d;
@@ -100,7 +100,10 @@ nav .menu-wrapper.active .line-3 {
 }
 
 nav h1 {
-  font-size: 40px;
+  font-size: 2.5em;
+  margin: 0;
+  line-height: 95%;
+  text-align: center;
   cursor: default;
 }
 
