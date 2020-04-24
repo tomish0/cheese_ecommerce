@@ -11,10 +11,8 @@ body {
 }
 
 .products-container {
-  margin-top: 90px;
   width: 90vw;
   margin: 50px auto;
-  max-width: 2000px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(325px, 1fr))[auto-fit];
@@ -63,8 +61,6 @@ body {
 
 .products-container .each-cheese .img-container .add-to-bag {
   position: absolute;
-  height: 200px;
-  width: 325px;
 }
 
 .products-container .each-cheese .img-container .add-to-bag button {
@@ -93,7 +89,6 @@ body {
 }
 
 .products-container .each-cheese .each-cheese-info {
-  width: 325px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

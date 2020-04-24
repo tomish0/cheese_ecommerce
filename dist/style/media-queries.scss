@@ -1,0 +1,84 @@
+@media (max-width: 753px) {
+  .cheese-shop-link {
+    width: 225px;
+  }
+  .products-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-column-gap: 1.4rem;
+    grid-row-gap: 0.8rem;
+    .each-cheese {
+      .img-container {
+        height: 150px;
+        width: 250px;
+        .add-to-bag {
+          button {
+            height: 150px;
+            width: 250px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 581px) {
+  nav {
+    padding: 1em;
+    h1 {
+      width: 318px;
+    }
+  }
+  .products-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 1.4rem;
+    grid-row-gap: 0.8rem;
+    .each-cheese {
+      .img-container {
+        height: 120px;
+        width: 200px;
+        .add-to-bag {
+          button {
+            height: 120px;
+            width: 200px;
+          }
+        }
+      }
+      .each-cheese-info {
+        h3 {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 471px) {
+  nav {
+    h1 {
+      font-size: 2.1em;
+      width: 260px;
+    }
+  }
+  .products-container {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    grid-column-gap: 1.2rem;
+    grid-row-gap: 0.7rem;
+    .each-cheese {
+      .img-container {
+        height: 100px;
+        width: 170px;
+        .add-to-bag {
+          button {
+            height: 100px;
+            width: 170px;
+          }
+        }
+      }
+      .each-cheese-info {
+        h3 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
