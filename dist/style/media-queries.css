@@ -2,19 +2,22 @@
   .cheese-shop-link {
     width: 225px;
   }
-  .products-container {
+  .shop-main .products-container {
     -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 1.4rem;
     grid-row-gap: 0.8rem;
   }
-  .products-container .each-cheese .img-container {
+  .shop-main .products-container .each-cheese .img-container {
     height: 150px;
     width: 250px;
   }
-  .products-container .each-cheese .img-container .add-to-bag button {
+  .shop-main .products-container .each-cheese .img-container .add-to-bag button {
     height: 150px;
     width: 250px;
+  }
+  .shop-main .bag-container {
+    width: 300px;
   }
 }
 
@@ -42,6 +45,22 @@
   .products-container .each-cheese .each-cheese-info h3 {
     font-size: 20px;
   }
+  .payment-form .details-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .payment-form .details-container .personal-details {
+    width: 280px;
+    margin-bottom: 30px;
+  }
+  .payment-form .details-container .payment-details {
+    width: 280px;
+  }
 }
 
 @media (max-width: 471px) {
@@ -49,22 +68,47 @@
     font-size: 2.1em;
     width: 260px;
   }
-  .products-container {
+  .shop-main .products-container {
     -ms-grid-columns: (minmax(170px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     grid-column-gap: 1.2rem;
     grid-row-gap: 0.7rem;
   }
-  .products-container .each-cheese .img-container {
+  .shop-main .products-container .each-cheese .img-container {
     height: 100px;
     width: 170px;
   }
-  .products-container .each-cheese .img-container .add-to-bag button {
+  .shop-main .products-container .each-cheese .img-container .add-to-bag button {
     height: 100px;
     width: 170px;
   }
-  .products-container .each-cheese .each-cheese-info h3 {
+  .shop-main .products-container .each-cheese .each-cheese-info h3 {
     font-size: 18px;
+  }
+  .shop-main .bag-container {
+    width: 270px;
+    padding: 5px;
+  }
+  .payment-main .bag-container {
+    padding: 0;
+  }
+  .payment-main .bag-container .each-cheese-container .each-cheese .img-container {
+    height: 80px;
+    width: 130px;
+  }
+  .payment-main .bag-container .each-cheese-container .each-cheese .each-cheese-info {
+    margin-left: 8px;
+    height: 80px;
+    font-size: 12px;
+  }
+  .payment-main .bag-container .each-cheese-container .quantity {
+    height: 60px;
+  }
+  .payment-main .bag-container .each-cheese-container .quantity .quantity-count {
+    font-size: 16px;
+  }
+  .payment-main .bag-container .each-cheese-container .quantity button i {
+    font-size: 16px;
   }
 }
 /*# sourceMappingURL=media-queries.css.map */
