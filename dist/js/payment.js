@@ -41,7 +41,7 @@ showUpdatedBag = () => {
       ? JSON.parse(localStorage.getItem("priceTotal"))
       : 0;
   // put the priceTotal into the totalCost div
-  totalCost.innerText = `Total: £${priceTotal}`;
+  totalCost.innerHTML = `Total: £${priceTotal}`;
   let result = "";
   bag.forEach((cheese) => {
     result += `<div class="each-cheese-container">
@@ -159,7 +159,7 @@ increasePriceTotal = () => {
   });
   localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
   localStorage.setItem("itemsTotal", JSON.stringify(itemsTotal));
-  totalCost.innerText = `Total: £${priceTotal.toFixed(2)}`;
+  totalCost.innerHTML = `Total: £${priceTotal.toFixed(2)}`;
 };
 
 // Used to increase cheese.quantity to then increase priceTotal
@@ -185,7 +185,7 @@ decreasePriceTotal = (correctCheese) => {
   let priceTotal = JSON.parse(localStorage.getItem("priceTotal"));
   priceTotal -= correctCheese.price;
   localStorage.setItem("priceTotal", JSON.stringify(priceTotal.toFixed(2)));
-  totalCost.innerText = `Total: £${priceTotal.toFixed(2)}`;
+  totalCost.innerHTML = `Total: £${priceTotal.toFixed(2)}`;
 };
 
 // Used to reduce the cheese.quantity to decrease priceTotal
