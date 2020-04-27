@@ -1,5 +1,7 @@
 @import "style.scss";
 
+.payment-main {
+  margin: 20px;
 // Static bag on payment page
 .bag-container {
   margin: 30px auto;
@@ -46,14 +48,14 @@
 
       .each-cheese-info {
         margin-left: 10px;
-        height: 80px;
+        height: 100px;
         font-size: 14px;
         h3 {
-          font-size: 22px;
+          font-size: 1.7em;
           margin: 0;
         }
         p {
-          font-size: 17px;
+          font-size: 1.2em;
           margin: 0;
         }
         button {
@@ -65,7 +67,7 @@
           color: $main-color;
           cursor: pointer;
           font-family: $font;
-          font-size: 12px;
+          font-size: 0.9em;
         }
       }
     }
@@ -118,4 +120,30 @@
     margin: 15px 0;
     font-size: 25px;
   }
+
+  // if bag is empty then link to shop button will replace bag
+  #shop-btn-bag-empty {
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 15px;
+      background-color: $main-color;
+      font-family: $font;
+      font-size: 19px;
+      border-radius: 10px;
+      border: 1px solid $third-color;
+      width: 80px;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      a {
+        text-decoration: none;
+        color: $third-color;
+      }
+    }
+    button:hover {
+      background-color: $second-color;
+    }
+  }
+}
 }

@@ -10,7 +10,11 @@ body {
   min-height: 100%;
 }
 
-.bag-container {
+.payment-main {
+  margin: 20px;
+}
+
+.payment-main .bag-container {
   margin: 30px auto;
   max-width: 500px;
   padding: 15px;
@@ -19,7 +23,7 @@ body {
   color: #1f363d;
 }
 
-.bag-container h2 {
+.payment-main .bag-container h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,7 +34,7 @@ body {
   font-size: 35px;
 }
 
-.bag-container .each-cheese-container {
+.payment-main .bag-container .each-cheese-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,7 +47,7 @@ body {
   margin: 20px auto;
 }
 
-.bag-container .each-cheese-container .each-cheese {
+.payment-main .bag-container .each-cheese-container .each-cheese {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -52,7 +56,7 @@ body {
           justify-content: center;
 }
 
-.bag-container .each-cheese-container .each-cheese .img-container {
+.payment-main .bag-container .each-cheese-container .each-cheese .img-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,30 +71,30 @@ body {
   width: 160px;
 }
 
-.bag-container .each-cheese-container .each-cheese .img-container img {
+.payment-main .bag-container .each-cheese-container .each-cheese .img-container img {
   width: 100%;
   height: 100%;
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
-.bag-container .each-cheese-container .each-cheese .each-cheese-info {
+.payment-main .bag-container .each-cheese-container .each-cheese .each-cheese-info {
   margin-left: 10px;
-  height: 80px;
+  height: 100px;
   font-size: 14px;
 }
 
-.bag-container .each-cheese-container .each-cheese .each-cheese-info h3 {
-  font-size: 22px;
+.payment-main .bag-container .each-cheese-container .each-cheese .each-cheese-info h3 {
+  font-size: 1.7em;
   margin: 0;
 }
 
-.bag-container .each-cheese-container .each-cheese .each-cheese-info p {
-  font-size: 17px;
+.payment-main .bag-container .each-cheese-container .each-cheese .each-cheese-info p {
+  font-size: 1.2em;
   margin: 0;
 }
 
-.bag-container .each-cheese-container .each-cheese .each-cheese-info button {
+.payment-main .bag-container .each-cheese-container .each-cheese .each-cheese-info button {
   margin: 0;
   outline: none;
   border: none;
@@ -99,10 +103,10 @@ body {
   color: #1f363d;
   cursor: pointer;
   font-family: "Baloo Paaji 2", cursive;
-  font-size: 12px;
+  font-size: 0.9em;
 }
 
-.bag-container .each-cheese-container .quantity {
+.payment-main .bag-container .each-cheese-container .quantity {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,11 +123,11 @@ body {
   height: 80px;
 }
 
-.bag-container .each-cheese-container .quantity .quantity-count {
+.payment-main .bag-container .each-cheese-container .quantity .quantity-count {
   font-size: 20px;
 }
 
-.bag-container .each-cheese-container .quantity button {
+.payment-main .bag-container .each-cheese-container .quantity button {
   outline: none;
   border: none;
   padding: 0;
@@ -132,11 +136,11 @@ body {
   cursor: pointer;
 }
 
-.bag-container .each-cheese-container .quantity button i {
+.payment-main .bag-container .each-cheese-container .quantity button i {
   font-size: 20px;
 }
 
-.bag-container .clear-btn {
+.payment-main .bag-container .clear-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -153,12 +157,12 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.bag-container .clear-btn:hover {
+.payment-main .bag-container .clear-btn:hover {
   background-color: #a3b8af;
   cursor: pointer;
 }
 
-.bag-container .total-cost {
+.payment-main .bag-container .total-cost {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -167,5 +171,37 @@ body {
           justify-content: center;
   margin: 15px 0;
   font-size: 25px;
+}
+
+.payment-main .bag-container #shop-btn-bag-empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.payment-main .bag-container #shop-btn-bag-empty button {
+  margin: 15px;
+  background-color: #1f363d;
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 19px;
+  border-radius: 10px;
+  border: 1px solid #eeeeee;
+  width: 80px;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.payment-main .bag-container #shop-btn-bag-empty button a {
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+.payment-main .bag-container #shop-btn-bag-empty button:hover {
+  background-color: #a3b8af;
 }
 /*# sourceMappingURL=payment-bag.css.map */

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="style/drop-down.css" />
     <link rel="stylesheet" href="style/payment-bag.css" />
     <link rel="stylesheet" href="style/payment-form.css" />
+    <link rel="stylesheet" href="style/media-queries.css" />
     <title>Cheese - Payment</title>
   </head>
   <body>
@@ -39,13 +40,14 @@
       </ul>
     </div>
     <!-- End of Navigation Bar -->
-    <main>
+    <main class="payment-main">
       <!-- Bag -->
       <div class="bag-container">
-        <h2>Your Bag</h2>
+        <h2 id="your-bag">Your Bag</h2>
         <div class="cheeses-container"></div>
         <button class="clear-btn">CLEAR BAG</button>
         <div class="total-cost">Total: £0</div>
+        <div id="shop-btn-bag-empty"></div>
       </div>
       <!-- End of Bag -->
       <!-- Payment Form -->

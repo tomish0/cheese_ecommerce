@@ -2,10 +2,8 @@
 
 // Container that is filled with all the cheeses acquired from async call 
 .products-container {
-  margin-top: 90px;
   width: 90vw;
   margin: 50px auto;
-  max-width: 2000px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
   grid-column-gap: 1.7rem;
@@ -31,8 +29,6 @@
       }
       .add-to-bag {
         position: absolute;
-        height: 200px;
-        width: 325px;
         button {
           position: absolute;
           top: 50%;
@@ -59,7 +55,6 @@
 
     // info about each cheese below
     .each-cheese-info {
-      width: 325px;
       display: flex;
       align-items: center;
       flex-direction: column;
