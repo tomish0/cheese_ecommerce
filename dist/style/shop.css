@@ -15,8 +15,8 @@ body {
   margin: 50px auto;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(325px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 1.7rem;
   grid-row-gap: 1rem;
 }
@@ -49,7 +49,7 @@ body {
           justify-content: center;
   position: relative;
   height: 200px;
-  width: 325px;
+  width: 300px;
 }
 
 .products-container .each-cheese .img-container img {
@@ -74,7 +74,7 @@ body {
   border: none;
   margin-bottom: 15px;
   height: 200px;
-  width: 325px;
+  width: 300px;
   outline: none;
   background-color: rgba(31, 54, 61, 0);
   color: rgba(31, 54, 61, 0);
