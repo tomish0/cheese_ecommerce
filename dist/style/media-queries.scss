@@ -33,24 +33,25 @@
       width: 318px;
     }
   }
-  .products-container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-column-gap: 1.4rem;
-    grid-row-gap: 0.8rem;
-    .each-cheese {
-      .img-container {
-        height: 120px;
-        width: 200px;
-        .add-to-bag {
-          button {
-            height: 120px;
-            width: 200px;
+  .shop-main {
+    .products-container {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-column-gap: 1.3rem;
+      .each-cheese {
+        .img-container {
+          height: 120px;
+          width: 200px;
+          .add-to-bag {
+            button {
+              height: 120px;
+              width: 200px;
+            }
           }
         }
-      }
-      .each-cheese-info {
-        h3 {
-          font-size: 20px;
+        .each-cheese-info {
+          h3 {
+            font-size: 20px;
+          }
         }
       }
     }
