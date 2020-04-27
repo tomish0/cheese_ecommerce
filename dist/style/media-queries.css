@@ -28,21 +28,20 @@
   nav h1 {
     width: 318px;
   }
-  .products-container {
+  .shop-main .products-container {
     -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-column-gap: 1.4rem;
-    grid-row-gap: 0.8rem;
+    grid-column-gap: 1.3rem;
   }
-  .products-container .each-cheese .img-container {
+  .shop-main .products-container .each-cheese .img-container {
     height: 120px;
     width: 200px;
   }
-  .products-container .each-cheese .img-container .add-to-bag button {
+  .shop-main .products-container .each-cheese .img-container .add-to-bag button {
     height: 120px;
     width: 200px;
   }
-  .products-container .each-cheese .each-cheese-info h3 {
+  .shop-main .products-container .each-cheese .each-cheese-info h3 {
     font-size: 20px;
   }
   .payment-form .details-container {
