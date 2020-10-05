@@ -1,50 +1,52 @@
 @import "style.scss";
 
-// main image background
-.img-container {
-  background-image: url("https://images.pexels.com/photos/2531189/pexels-photo-2531189.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=2000");
-  background-size: cover;
-  background-position: center;
-  height: calc(100vh - 90px);
-}
-
-// Link to shop floating middle of screen
-.cheese-shop-link {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba($color: $main-color, $alpha: 0.5);
-  width: 30%;
-  padding: 20px 20px 35px 20px;
-  border-radius: 10px;
-  font-family: $font;
-  h2 {
-    font-size: 50px;
-    color: $third-color;
-    margin: 0;
-    cursor: default;
+main {
+  position: relative;
+  // main image background
+  .img-container {
+    background-image: url("https://images.pexels.com/photos/2531189/pexels-photo-2531189.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=2000");
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 90px);
   }
-  button {
-    background-color: rgba(144, 148, 146, 0.5);
-    font-family: $font;
-    font-size: 20px;
+  // Link to shop floating middle of screen
+  .cheese-shop-link {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba($color: $main-color, $alpha: 0.5);
+    width: 300px;
+    padding: 20px 20px 35px 20px;
     border-radius: 10px;
-    border: 1px solid $third-color;
-    width: 80px;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-
-    a {
-      text-decoration: none;
+    font-family: $font;
+    h2 {
+      font-size: 50px;
       color: $third-color;
+      margin: 0;
+      cursor: default;
     }
-  }
-  button:hover {
-    background-color: $main-color;
+    button {
+      background-color: rgba(144, 148, 146, 0.5);
+      font-family: $font;
+      font-size: 20px;
+      border-radius: 10px;
+      border: 1px solid $third-color;
+      width: 80px;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      a {
+        text-decoration: none;
+        color: $third-color;
+      }
+    }
+    button:hover {
+      background-color: $main-color;
+    }
   }
 }
